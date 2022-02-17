@@ -1,3 +1,5 @@
 /build/
 /dist/
 /main.spec
+/pingTest.log
+server_list.json
