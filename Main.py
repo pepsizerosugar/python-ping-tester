@@ -202,27 +202,35 @@ class MainWindow(QMainWindow):
                 self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
             else:
                 int_value = int(re.findall(r'\d{1,3}', value)[0])
-                self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
+                cell_item = QTableWidgetItem()
+                cell_item.setData(Qt.DisplayRole, int_value)
+                self.server_list_table.setItem(currentRow, i + 4, cell_item)
+                cell_widget = self.server_list_table.item(currentRow, i + 4).tableWidget()
                 if 50 >= int_value >= 0:
-                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(0, 150, 0)))
+                    cell_widget.item(currentRow, i + 4).setForeground(QBrush(QColor(0, 150, 0)))
                 if 100 >= int_value >= 51:
-                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 69, 0)))
+                    cell_widget.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 69, 0)))
                 if 150 >= int_value >= 101:
-                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(250, 128, 114)))
+                    cell_widget.item(currentRow, i + 4).setForeground(QBrush(QColor(250, 128, 114)))
                 if 200 >= int_value >= 151:
-                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(240, 128, 12)))
+                    cell_widget.item(currentRow, i + 4).setForeground(QBrush(QColor(240, 128, 12)))
                 if 300 >= int_value >= 201:
-                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(220, 20, 60)))
+                    cell_widget.item(currentRow, i + 4).setForeground(QBrush(QColor(220, 20, 60)))
                 if int_value >= 301:
-                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
+                    cell_widget.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
             self.server_list_table.repaint()
         if self.count == len(self.checked_server_list):
             logger.info('Ping finished')
-            QMessageBox.information(self, 'Info', 'Ping finished')
+            self.server_list_table.sortByColumn(6, Qt.AscendingOrder)
+            best_server = self.server_list_table.item(0, 1).text()
+            best_server_ip = self.server_list_table.item(0, 3).text()
+            best_server_ping = self.server_list_table.item(0, 6).text()
+            QMessageBox.information(self, 'Info',
+                                    'Ping finished\n'
+                                    'Best server : ' + best_server + '(' + best_server_ip + ') with ping ' + best_server_ping)
             self.progress_bar.reset()
             self.enable_buttons()
             self.count = 0
-            # self.resize_server_list_table()
 
     # clear button clicked
     def clear_btn_clicked(self):
@@ -232,10 +240,7 @@ class MainWindow(QMainWindow):
         # clear result tabel cell
         for row in range(self.server_list_table.rowCount()):
             for j in range(4, 7):
-                self.server_list_table.item(row, j).setText('-')
-                self.server_list_table.item(row, j).setForeground(QBrush(QColor(180, 180, 180)))
-            self.server_list_table.repaint()
-        # self.resize_server_list_table()
+                self.server_list_table.setItem(row, j, QTableWidgetItem(''))
 
     # Init Server List Group Box
     def init_server_list_groupbox(self):
@@ -309,9 +314,9 @@ class MainWindow(QMainWindow):
         self.server_list_table.setItem(row, 1, QTableWidgetItem(server['server']))
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
-        self.server_list_table.setItem(row, 4, QTableWidgetItem('-'))
-        self.server_list_table.setItem(row, 5, QTableWidgetItem('-'))
-        self.server_list_table.setItem(row, 6, QTableWidgetItem('-'))
+        # self.server_list_table.setItem(row, 4, QTableWidgetItem(''))
+        # self.server_list_table.setItem(row, 5, QTableWidgetItem(''))
+        # self.server_list_table.setItem(row, 6, QTableWidgetItem(''))
 
     # Resize server list table
     def resize_server_list_table(self):
