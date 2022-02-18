@@ -7,7 +7,7 @@ import qtmodern.windows
 from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtGui import QBrush, QColor, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QGridLayout, QWidget, QGroupBox, QPushButton, QTableWidget, \
-    QMessageBox, QTableWidgetItem, QCheckBox, QApplication, QHBoxLayout, QHeaderView, QProgressBar, QProgressDialog
+    QMessageBox, QTableWidgetItem, QCheckBox, QApplication, QHBoxLayout, QHeaderView, QProgressBar
 from PingThread import PingThread
 
 # Server list format: [
