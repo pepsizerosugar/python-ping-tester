@@ -197,23 +197,18 @@ class MainWindow(QMainWindow):
                 self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
             else:
                 int_value = int(re.findall(r'\d{1,3}', value)[0])
+                self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                 if 50 >= int_value >= 0:
-                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(0, 150, 0)))
                 if 100 >= int_value >= 51:
-                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 69, 0)))
                 if 150 >= int_value >= 101:
-                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(250, 128, 114)))
                 if 200 >= int_value >= 151:
-                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(240, 128, 12)))
                 if 300 >= int_value >= 201:
-                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(220, 20, 60)))
                 if int_value >= 301:
-                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
             self.server_list_table.repaint()
         if self.count == len(self.checked_server_list):
