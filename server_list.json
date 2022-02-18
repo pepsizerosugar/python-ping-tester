@@ -3,10 +3,10 @@
     {
       "name": "Beauharnois",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 42,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 42,
+      "ip_addresses": [
         "192.99.18.148",
         "144.217.72.21"
       ]
@@ -14,10 +14,10 @@
     {
       "name": "Germany",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 5,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 5,
+      "ip_addresses": [
         "176.57.181.239",
         "146.0.254.136"
       ]
@@ -25,21 +25,34 @@
     {
       "name": "Seoul",
       "region": "ASI",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 20,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 20,
+      "ip_addresses": [
+        "92.38.165.133",
+        "92.38.165.134",
+        "92.38.165.135",
+        "92.38.165.136",
+        "92.38.165.137",
+        "92.38.165.138",
         "92.38.165.139",
-        "92.38.165.141"
+        "92.38.165.140",
+        "92.38.165.141",
+        "92.38.165.142",
+        "92.38.165.143",
+        "92.38.165.144",
+        "92.38.165.145",
+        "92.38.165.146",
+        "92.38.165.147"
       ]
     },
     {
       "name": "Moscow",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 14,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 14,
+      "ip_addresses": [
         "176.99.3.81",
         "176.99.3.55"
       ]
@@ -47,10 +60,10 @@
     {
       "name": "Miami",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 9,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 9,
+      "ip_addresses": [
         "23.82.136.213",
         "192.155.106.110"
       ]
@@ -58,10 +71,10 @@
     {
       "name": "StLouis",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 8,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 8,
+      "ip_addresses": [
         "148.72.173.234",
         "148.72.174.185"
       ]
@@ -69,10 +82,10 @@
     {
       "name": "Ekaterinburg",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 111,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 111,
+      "ip_addresses": [
         "92.223.91.8",
         "92.223.91.17"
       ]
@@ -80,10 +93,10 @@
     {
       "name": "SaintPetersburg",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 31,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 31,
+      "ip_addresses": [
         "82.202.250.92",
         "82.202.250.91"
       ]
@@ -91,10 +104,10 @@
     {
       "name": "WashingtonDC",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 10,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 10,
+      "ip_addresses": [
         "5.188.124.11",
         "5.188.124.16"
       ]
@@ -102,21 +115,22 @@
     {
       "name": "HongKong",
       "region": "ASI",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 15,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 15,
+      "ip_addresses": [
         "209.58.191.183",
-        "103.66.180.254"
+        "103.66.180.254",
+        "103.244.113.102"
       ]
     },
     {
       "name": "Chicago",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 37,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 37,
+      "ip_addresses": [
         "108.62.106.1",
         "108.62.107.8"
       ]
@@ -124,10 +138,10 @@
     {
       "name": "Dallas",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 15,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 15,
+      "ip_addresses": [
         "209.58.147.249",
         "209.58.153.169"
       ]
@@ -135,10 +149,10 @@
     {
       "name": "London",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 11,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 11,
+      "ip_addresses": [
         "95.168.177.233",
         "185.59.221.36"
       ]
@@ -146,10 +160,10 @@
     {
       "name": "Kazakhstan",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 55,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 55,
+      "ip_addresses": [
         "94.247.134.219",
         "5.189.202.7"
       ]
@@ -157,10 +171,10 @@
     {
       "name": "Seattle",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 28,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 28,
+      "ip_addresses": [
         "84.17.41.37",
         "108.62.5.69"
       ]
@@ -168,21 +182,24 @@
     {
       "name": "California",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 10,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 10,
+      "ip_addresses": [
         "138.199.9.185",
-        "23.19.66.143"
+        "23.19.66.143",
+        "104.22.29.180",
+        "172.67.41.203",
+        "104.22.28.180"
       ]
     },
     {
       "name": "Turkey",
       "region": "ME",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 47,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 47,
+      "ip_addresses": [
         "92.38.180.89",
         "92.38.180.19"
       ]
@@ -190,10 +207,10 @@
     {
       "name": "Singapore",
       "region": "ASI",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 39,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 39,
+      "ip_addresses": [
         "23.106.120.84",
         "23.106.120.91"
       ]
@@ -201,10 +218,10 @@
     {
       "name": "Finland",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 20,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 20,
+      "ip_addresses": [
         "95.216.45.93",
         "95.217.105.51"
       ]
@@ -212,10 +229,10 @@
     {
       "name": "Khabarovsk",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 8,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 8,
+      "ip_addresses": [
         "92.223.80.78",
         "92.38.191.137"
       ]
@@ -223,10 +240,10 @@
     {
       "name": "Australia",
       "region": "OCE",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 30,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 30,
+      "ip_addresses": [
         "103.101.129.122",
         "137.59.253.18"
       ]
@@ -234,10 +251,10 @@
     {
       "name": "France",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 3,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 3,
+      "ip_addresses": [
         "92.204.186.230",
         "151.106.3.186"
       ]
@@ -245,10 +262,10 @@
     {
       "name": "SanPaulo",
       "region": "SAM",
-      "isSelected": true,
-      "maxPingTime": 170,
-      "avgWaitTime": 27,
-      "ipAddresses": [
+      "is_selected": true,
+      "max_ping_time": 170,
+      "avg_wait_time": 27,
+      "ip_addresses": [
         "92.38.151.187",
         "92.38.150.27"
       ]
@@ -256,10 +273,10 @@
     {
       "name": "Israel",
       "region": "ME",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 121,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 121,
+      "ip_addresses": [
         "5.188.95.64",
         "5.188.95.8"
       ]
@@ -267,10 +284,10 @@
     {
       "name": "Netherlands",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 9,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 9,
+      "ip_addresses": [
         "185.76.10.37",
         "195.181.173.195"
       ]
@@ -278,10 +295,10 @@
     {
       "name": "Krasnoyarsk",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 36,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 36,
+      "ip_addresses": [
         "92.223.87.18",
         "92.223.87.12"
       ]
@@ -289,20 +306,20 @@
     {
       "name": "Italy",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 83,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 83,
+      "ip_addresses": [
         "92.38.174.13"
       ]
     },
     {
       "name": "Poland",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 21,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 21,
+      "ip_addresses": [
         "51.83.237.15",
         "84.17.55.138"
       ]
@@ -310,10 +327,10 @@
     {
       "name": "Johannesburg",
       "region": "AF",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 23,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 23,
+      "ip_addresses": [
         "5.188.1.27",
         "5.188.1.22"
       ]
@@ -321,10 +338,10 @@
     {
       "name": "Vladivostok",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 16,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 16,
+      "ip_addresses": [
         "185.101.137.139",
         "185.101.137.136"
       ]
@@ -332,10 +349,10 @@
     {
       "name": "Sweden",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 11,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 11,
+      "ip_addresses": [
         "195.181.166.111",
         "195.181.166.109"
       ]
@@ -343,10 +360,10 @@
     {
       "name": "Atlanta",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 14,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 14,
+      "ip_addresses": [
         "185.93.0.83",
         "195.181.171.198"
       ]
@@ -354,10 +371,10 @@
     {
       "name": "Romania",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 54,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 54,
+      "ip_addresses": [
         "185.102.217.154",
         "185.102.217.153"
       ]
@@ -365,10 +382,10 @@
     {
       "name": "Austria",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 22,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 22,
+      "ip_addresses": [
         "185.180.12.86",
         "185.180.12.85"
       ]
@@ -376,10 +393,10 @@
     {
       "name": "Slovakia",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 29,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 29,
+      "ip_addresses": [
         "156.146.40.113",
         "156.146.40.73"
       ]
@@ -387,10 +404,10 @@
     {
       "name": "Czech",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 29,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 29,
+      "ip_addresses": [
         "89.187.191.202",
         "212.102.38.51"
       ]
@@ -398,10 +415,10 @@
     {
       "name": "Denver",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 12,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 12,
+      "ip_addresses": [
         "84.17.63.82",
         "84.17.63.79"
       ]
@@ -409,10 +426,10 @@
     {
       "name": "Novosibirsk",
       "region": "RUS",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 31,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 31,
+      "ip_addresses": [
         "5.8.42.8",
         "5.8.42.6"
       ]
@@ -420,21 +437,22 @@
     {
       "name": "Japan",
       "region": "ASI",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 31,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 31,
+      "ip_addresses": [
         "103.208.221.211",
-        "103.208.221.213"
+        "103.208.221.213",
+        "143.244.40.205"
       ]
     },
     {
       "name": "Spain",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 15,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 15,
+      "ip_addresses": [
         "212.102.48.152",
         "212.102.48.153"
       ]
@@ -442,10 +460,10 @@
     {
       "name": "NewYork",
       "region": "USA",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 60,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 60,
+      "ip_addresses": [
         "89.187.178.80",
         "89.187.178.79"
       ]
@@ -453,10 +471,10 @@
     {
       "name": "Ukraine",
       "region": "EUR",
-      "isSelected": false,
-      "maxPingTime": 170,
-      "avgWaitTime": 244,
-      "ipAddresses": [
+      "is_selected": false,
+      "max_ping_time": 170,
+      "avg_wait_time": 244,
+      "ip_addresses": [
         "185.101.138.136"
       ]
     }
