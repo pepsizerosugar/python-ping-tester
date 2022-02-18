@@ -314,9 +314,6 @@ class MainWindow(QMainWindow):
         self.server_list_table.setItem(row, 1, QTableWidgetItem(server['server']))
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
-        # self.server_list_table.setItem(row, 4, QTableWidgetItem(''))
-        # self.server_list_table.setItem(row, 5, QTableWidgetItem(''))
-        # self.server_list_table.setItem(row, 6, QTableWidgetItem(''))
 
     # Resize server list table
     def resize_server_list_table(self):

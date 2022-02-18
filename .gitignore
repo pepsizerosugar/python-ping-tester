@@ -1,7 +1,4 @@
+/.idea/
+/__pycache__/
 /build/
 /dist/
-
-/pingTest.log
-/ping_test.log
-
-main.spec
