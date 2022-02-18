@@ -14,7 +14,7 @@ from PingThread import PingThread
 #           {
 #              'name': '',
 #              'region': '',
-#              'ipAddresses': [
+#              'ip_addresses': [
 #                  "000.000.000.000",
 #                  "000.000.000.000",
 #              ]
@@ -22,7 +22,7 @@ from PingThread import PingThread
 #           {
 #              'name': '',
 #              'region': '',
-#              'ipAddresses': [
+#              'ip_addresses': [
 #                  "000.000.000.000",
 #                  "000.000.000.000",
 #              ]
@@ -51,6 +51,7 @@ class MainWindow(QMainWindow):
         self.ping_btn_group_box = None
 
         self.check_all_btn = None
+        self.uncheck_all_btn = None
         self.ping_btn = None
         self.clear_btn = None
 
@@ -122,15 +123,18 @@ class MainWindow(QMainWindow):
         self.ping_btn_group_box.setLayout(QGridLayout())
 
         self.check_all_btn = QPushButton("Check All")
+        self.uncheck_all_btn = QPushButton("Uncheck All")
         self.ping_btn = QPushButton("Ping")
         self.clear_btn = QPushButton("Clear")
 
         self.ping_btn_group_box.layout().addWidget(self.check_all_btn, 0, 1)
-        self.ping_btn_group_box.layout().addWidget(self.ping_btn, 0, 2)
-        self.ping_btn_group_box.layout().addWidget(self.clear_btn, 0, 3)
+        self.ping_btn_group_box.layout().addWidget(self.uncheck_all_btn, 0, 2)
+        self.ping_btn_group_box.layout().addWidget(self.ping_btn, 0, 3)
+        self.ping_btn_group_box.layout().addWidget(self.clear_btn, 0, 4)
 
         # Set button event handler
         self.check_all_btn.clicked.connect(self.check_all_btn_clicked)
+        self.uncheck_all_btn.clicked.connect(self.uncheck_all_btn_clicked)
         self.ping_btn.clicked.connect(self.ping_btn_clicked)
         self.clear_btn.clicked.connect(self.clear_btn_clicked)
 
@@ -141,6 +145,14 @@ class MainWindow(QMainWindow):
         for row in range(self.server_list_table.rowCount()):
             check_box_widget = self.server_list_table.cellWidget(row, 0)
             check_box_widget.children()[1].setChecked(True)
+
+    # uncheck all button clicked
+    def uncheck_all_btn_clicked(self):
+        logger.info('Uncheck all button clicked')
+
+        for row in range(self.server_list_table.rowCount()):
+            check_box_widget = self.server_list_table.cellWidget(row, 0)
+            check_box_widget.children()[1].setChecked(False)
 
     # ping button clicked
     def ping_btn_clicked(self):
@@ -186,22 +198,22 @@ class MainWindow(QMainWindow):
             else:
                 int_value = int(re.findall(r'\d{1,3}', value)[0])
                 if 50 >= int_value >= 0:
-                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(0, 150, 0)))
                 if 100 >= int_value >= 51:
-                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 69, 0)))
                 if 150 >= int_value >= 101:
-                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(250, 128, 114)))
                 if 200 >= int_value >= 151:
-                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(240, 128, 12)))
                 if 300 >= int_value >= 201:
-                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(220, 20, 60)))
                 if int_value >= 301:
-                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setText(str(int_value))
                     self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
             self.server_list_table.repaint()
         if self.count == len(self.checked_server_list):
@@ -234,13 +246,15 @@ class MainWindow(QMainWindow):
 
         # Set server list table
         self.server_list_table = QTableWidget()
+        self.server_list_table.setSortingEnabled(False)
         self.server_list_table.setColumnCount(7)
-        self.server_list_table.setHorizontalHeaderLabels(['✔', 'Server', 'Region', 'IP', 'Min', 'Max', 'Avg'])
+        self.server_list_table.setHorizontalHeaderLabels(
+            ['✔', 'Server', 'Region', 'IP', 'Min(ms)', 'Max(ms)', 'Avg(ms)'])
 
         # First init server list table size
         self.server_list_table.setColumnWidth(0, 10)
         self.server_list_table.setColumnWidth(1, 100)
-        self.server_list_table.setColumnWidth(2, 60)
+        self.server_list_table.setColumnWidth(2, 50)
         self.server_list_table.setColumnWidth(3, 120)
         self.server_list_table.setColumnWidth(4, 70)
         self.server_list_table.setColumnWidth(5, 70)
@@ -268,12 +282,13 @@ class MainWindow(QMainWindow):
             with open('server_list.json', 'r') as f:
                 data = json.load(f)
                 server_list = data['server_list']
+                server_list = sorted(server_list, key=lambda x: x['name'])
                 for i in range(len(server_list)):
-                    for j in range(len(server_list[i]['ipAddresses'])):
+                    for j in range(len(server_list[i]['ip_addresses'])):
                         server_structure.append({
                             'server': server_list[i]['name'],
                             'region': server_list[i]['region'],
-                            'ip': server_list[i]['ipAddresses'][j],
+                            'ip': server_list[i]['ip_addresses'][j],
                         })
         except FileNotFoundError:
             server_structure = []
@@ -324,7 +339,7 @@ if __name__ == '__main__':
     # Set Dark Theme
     qtmodern.styles.dark(app)
     mw = qtmodern.windows.ModernWindow(window)
-    mw.setFixedSize(600, 450)
+    mw.setFixedSize(600, 500)
     mw.show()
 
     sys.exit(app.exec_())
