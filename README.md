@@ -5,7 +5,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
 * Ping test utility GUI
-![sample_run](![](https://raw.githubusercontent.com/pepsizerosugar/python-ping-tester/resource/img/sample_run.gif))
+  <br><br>
+![sample_run](https://user-images.githubusercontent.com/84403670/154633965-3ee0d2e2-d877-4ddb-8a4b-24bd26d77e3d.gif)
   <br><br>
 
 ## 0. Change Log
