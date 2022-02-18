@@ -1,9 +1,14 @@
 import sys
 import json
 import logging.handlers
+import qtmodern.styles
+import qtmodern.windows
 
+from PyQt5.QtCore import Qt, pyqtSlot
+from PyQt5.QtGui import QBrush, QColor, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QGridLayout, QWidget, QGroupBox, QPushButton, QTableWidget, \
-    QMessageBox, QTableWidgetItem, QCheckBox, QApplication
+    QMessageBox, QTableWidgetItem, QCheckBox, QApplication, QHBoxLayout, QHeaderView
+from PingThread import PingThread
 
 # Server list format: [
 #           {
@@ -26,10 +31,10 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QGridLayout, QWidget, Q
 
 
 # Logging setup
-logger = logging.getLogger('pingTest')
+logger = logging.getLogger('ping_test_logger')
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler = logging.handlers.RotatingFileHandler('pingTest.log', maxBytes=1048576, backupCount=5)
+handler = logging.handlers.RotatingFileHandler('ping_test.log', maxBytes=1048576, backupCount=5)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 logger.info('Start Ping Test app')
@@ -42,13 +47,22 @@ class MainWindow(QMainWindow):
 
         self.main_layout = None
         self.main_widget = None
+
         self.ping_btn_group_box = None
+
+        self.check_all_btn = None
+        self.ping_btn = None
+        self.clear_btn = None
+
         self.server_list_group_box = None
         self.server_list_table = None
         self.server_list = None
+        self.checked_server_list = None
+
+        self.count = 0
 
         self.setWindowTitle("Ping Pong")
-        self.setFixedSize(600, 400)
+        self.setWindowIcon(QIcon('resource/img/icon.png'))
 
         self.init_ui()
 
@@ -60,7 +74,6 @@ class MainWindow(QMainWindow):
         self.init_layout()
 
         self.center()
-        self.show()
 
         # Set StatusBar
         self.statusBar().showMessage('Ready')
@@ -76,6 +89,10 @@ class MainWindow(QMainWindow):
     # Init layout
     def init_layout(self):
         logger.info('Initialize layout')
+
+        # Set Style
+        self.main_layout.setSpacing(10)
+        self.main_layout.setContentsMargins(10, 10, 10, 10)
 
         # Init group box
         self.init_ping_btn_groupbox()
@@ -104,9 +121,109 @@ class MainWindow(QMainWindow):
         self.ping_btn_group_box = QGroupBox("Ping")
         self.ping_btn_group_box.setLayout(QGridLayout())
 
-        self.ping_btn_group_box.layout().addWidget(QPushButton('Check All'), 0, 1)
-        self.ping_btn_group_box.layout().addWidget(QPushButton('Ping'), 0, 2)
-        self.ping_btn_group_box.layout().addWidget(QPushButton('Clear'), 0, 3)
+        self.check_all_btn = QPushButton("Check All")
+        self.ping_btn = QPushButton("Ping")
+        self.clear_btn = QPushButton("Clear")
+
+        self.ping_btn_group_box.layout().addWidget(self.check_all_btn, 0, 1)
+        self.ping_btn_group_box.layout().addWidget(self.ping_btn, 0, 2)
+        self.ping_btn_group_box.layout().addWidget(self.clear_btn, 0, 3)
+
+        # Set button event handler
+        self.check_all_btn.clicked.connect(self.check_all_btn_clicked)
+        self.ping_btn.clicked.connect(self.ping_btn_clicked)
+        self.clear_btn.clicked.connect(self.clear_btn_clicked)
+
+    # check all button clicked
+    def check_all_btn_clicked(self):
+        logger.info('Check all button clicked')
+
+        for row in range(self.server_list_table.rowCount()):
+            check_box_widget = self.server_list_table.cellWidget(row, 0)
+            check_box_widget.children()[1].setChecked(True)
+
+    # ping button clicked
+    def ping_btn_clicked(self):
+        logger.info('Ping button clicked')
+        self.statusBar().showMessage('Pinging...')
+
+        self.checked_server_list = []
+
+        # Create checked server list
+        for row in range(self.server_list_table.rowCount()):
+            check_box_widget = self.server_list_table.cellWidget(row, 0)
+            if check_box_widget.children()[1].isChecked():
+                server_name = self.server_list_table.item(row, 1).text()
+                server_ip = self.server_list_table.item(row, 3).text()
+                ping_thread = PingThread(row, server_name, server_ip, logger)
+                self.checked_server_list.append(ping_thread)
+
+                # Change result table cell to 'Pinging...'
+                for j in range(4, 7):
+                    self.server_list_table.setItem(row, j, QTableWidgetItem('Pinging...'))
+                    self.server_list_table.item(row, j).setForeground(QBrush(QColor(0, 150, 0)))
+                self.server_list_table.repaint()
+
+        # Start ping thread
+        if len(self.checked_server_list) > 0:
+            for thread in self.checked_server_list:
+                thread.progress.connect(self.update_progress)
+                thread.start()
+        else:
+            self.statusBar().showMessage('Ready')
+            QMessageBox.information(self, 'Info', 'Please select server to ping.')
+
+    # ping_thread progress
+    @pyqtSlot(int, list)
+    def update_progress(self, currentRow, result):
+        import re
+        self.count += 1
+        for i in range(3):
+            value = result[i]
+            if value == 'Fail':
+                self.server_list_table.item(currentRow, i + 4).setText(value)
+                self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
+            else:
+                int_value = int(re.findall(r'\d{1,3}', value)[0])
+                if 50 >= int_value >= 0:
+                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(0, 150, 0)))
+                if 100 >= int_value >= 51:
+                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 69, 0)))
+                if 150 >= int_value >= 101:
+                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(250, 128, 114)))
+                if 200 >= int_value >= 151:
+                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(240, 128, 12)))
+                if 300 >= int_value >= 201:
+                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(220, 20, 60)))
+                if int_value >= 301:
+                    self.server_list_table.item(currentRow, i + 4).setText(value)
+                    self.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
+            self.server_list_table.repaint()
+        if self.count == len(self.checked_server_list):
+            logger.info('Ping finished')
+            self.statusBar().showMessage('Ping finished')
+            self.count = 0
+            # self.resize_server_list_table()
+
+    # clear button clicked
+    def clear_btn_clicked(self):
+        logger.info('Clear button clicked')
+        self.statusBar().showMessage('Clear')
+
+        # clear result tabel cell
+        for row in range(self.server_list_table.rowCount()):
+            for j in range(4, 7):
+                self.server_list_table.item(row, j).setText('-')
+                self.server_list_table.item(row, j).setForeground(QBrush(QColor(180, 180, 180)))
+            self.server_list_table.repaint()
+        # self.resize_server_list_table()
+
+        self.statusBar().showMessage('Clear finished')
 
     # Init Server List Group Box
     def init_server_list_groupbox(self):
@@ -118,14 +235,16 @@ class MainWindow(QMainWindow):
         # Set server list table
         self.server_list_table = QTableWidget()
         self.server_list_table.setColumnCount(7)
-        self.server_list_table.setHorizontalHeaderLabels(['Check', 'Server', 'Region', 'IP', 'Min', 'Max', 'Avg'])
-        self.server_list_table.setColumnWidth(0, 50)
-        self.server_list_table.setColumnWidth(1, 80)
-        self.server_list_table.setColumnWidth(2, 50)
-        self.server_list_table.setColumnWidth(3, 100)
-        self.server_list_table.setColumnWidth(4, 75)
-        self.server_list_table.setColumnWidth(5, 75)
-        self.server_list_table.setColumnWidth(6, 75)
+        self.server_list_table.setHorizontalHeaderLabels(['✔', 'Server', 'Region', 'IP', 'Min', 'Max', 'Avg'])
+
+        # First init server list table size
+        self.server_list_table.setColumnWidth(0, 10)
+        self.server_list_table.setColumnWidth(1, 100)
+        self.server_list_table.setColumnWidth(2, 60)
+        self.server_list_table.setColumnWidth(3, 120)
+        self.server_list_table.setColumnWidth(4, 70)
+        self.server_list_table.setColumnWidth(5, 70)
+        self.server_list_table.setColumnWidth(6, 70)
 
         self.server_list_group_box.layout().addWidget(self.server_list_table, 0, 0)
 
@@ -164,7 +283,14 @@ class MainWindow(QMainWindow):
 
     # Insert server list table
     def insert_server_list_table(self, row, server):
-        self.server_list_table.setCellWidget(row, 0, QCheckBox())
+        cell_widget = QWidget()
+        check_box_layout = QHBoxLayout()
+        check_box_layout.addWidget(QCheckBox())
+        check_box_layout.setAlignment(Qt.AlignCenter)
+        check_box_layout.setContentsMargins(0, 0, 0, 0)
+        cell_widget.setLayout(check_box_layout)
+
+        self.server_list_table.setCellWidget(row, 0, cell_widget)
         self.server_list_table.setItem(row, 1, QTableWidgetItem(server['server']))
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
@@ -172,9 +298,33 @@ class MainWindow(QMainWindow):
         self.server_list_table.setItem(row, 5, QTableWidgetItem('-'))
         self.server_list_table.setItem(row, 6, QTableWidgetItem('-'))
 
+    # Resize server list table
+    def resize_server_list_table(self):
+        logger.info('Resize server list table')
+
+        table_header = self.server_list_table.horizontalHeader()
+        table_width = table_header.width()
+        width = []
+        for column in range(table_header.count()):
+            table_header.setSectionResizeMode(column, QHeaderView.ResizeToContents)
+            width.append(table_header.sectionSize(column))
+
+        width_factor = table_width / sum(width)
+
+        for column in range(table_header.count()):
+            table_header.setSectionResizeMode(column, QHeaderView.Interactive)
+            table_header.resizeSection(column, int(width[column] * width_factor))
+
 
 # Main
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
+
+    # Set Dark Theme
+    qtmodern.styles.dark(app)
+    mw = qtmodern.windows.ModernWindow(window)
+    mw.setFixedSize(600, 450)
+    mw.show()
+
     sys.exit(app.exec_())
