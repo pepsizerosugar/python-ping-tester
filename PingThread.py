@@ -22,7 +22,7 @@ class PingThread(QThread):
         import re
 
         try:
-            ping_response = subprocess.Popen("ping -n 4 -w 1000 " + str(ip), stdout=subprocess.PIPE, shell=True)
+            ping_response = subprocess.Popen("ping -n 5 -w 1000 " + str(ip), stdout=subprocess.PIPE, shell=True)
             stdout, stderr = ping_response.communicate()
             stdout = stdout.decode("cp949").split('\n')[-2].replace(" ", "")
             result = re.findall(r"\d{1,3}ms", stdout)
