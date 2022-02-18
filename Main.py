@@ -63,7 +63,7 @@ class MainWindow(QMainWindow):
         self.count = 0
 
         self.setWindowTitle("Ping Pong")
-        self.setWindowIcon(QIcon('resource/img/icon.png'))
+        self.setWindowIcon(QIcon('resource/img/icon.ico'))
 
         self.init_ui()
 
