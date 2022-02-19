@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.1.0-green)
-![Update](https://img.shields.io/badge/Update-2022.02.19-darkgrey)
+![Version](https://img.shields.io/badge/Version-1.2.0-green)
+![Update](https://img.shields.io/badge/Update-2022.02.20-darkgrey)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
 * Ping test utility GUI
@@ -11,20 +11,14 @@
 
 ## 0. Change Log
 
-### version 1.1.0 (2022.02.19)
+### version 1.2.0 (2022.02.20)
 
 * Commit history
-    * [pepsi-019] added build bat
-    * [pepsi-018] updated demo.gif to new GUI version
-    * [pepsi-017] changed result cell type String to Integer for sorting when ping finished
-    * [pepsi-016] edited ping count 4 to 5
-    * [pepsi-015] replaced sample_run.gif to demo.gif
-    * [pepsi-014] replaced statusBar with progressBar, disable buttons when ping started
-    * [pepsi-013] removed unused keys from server_list.json
-    * [pepsi-012] moved '[TEMP] Ping Test.py' to 'Temp' folder
-    * [pepsi-011] removed icon.png, edited setWindowIcon file
-    * [pepsi-010] added app icon.ico
-    * [pepsi-009] removed duplicate code in update_progress function
+    * [pepsi-026] added some resource, edited build.bat
+    * [pepsi-025] separated Main class to each method type
+    * [pepsi-024] changed demo to realtime version
+    * [pepsi-023] committed before separate method
+    * [pepsi-022] updated server list
 
 <br>
 
@@ -37,15 +31,19 @@
     1. ```git clone https://github.com/pepsizerosugar/python-ping-tester.git```
 
 2. Build Main.py using build.bat or just run.
+    1. When build is done, you can run the PingPong.exe in the dist folder.
+    2. server_list.json file at top-level folder is automatically copy to dist folder.
+       <br>
+       <img src="./resource/img/program_when_build_finished.png" alt="">
 
 ### 1-2. How to use
 
-* Server List
+* Edit server list
     1. Open the server_list.json file.
-    2. Add your server to the list.
+    2. Enter the list of servers you want to ping according to the server list format.
     3. Save the file.
 
-* Example
+* Server list json format
 
 ```json
 {
@@ -79,3 +77,8 @@
         * Ping checked servers in the list.
     4. Clear button
         * Clear ping result in the list.
+
+* When you click the Ping button, the ping result will be shown in the list.
+* And the best ping time result will be shown in the messagebox when all ping finished.
+    * <img src="./resource/img/messagebox_when_ping_finished.png" alt="">
+* After click the ok at messagebox, the ping result will automatically sort by ping time.
