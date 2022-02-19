@@ -3,4 +3,6 @@
 /build/
 /dist/
 
+PingPong.spec
 ping_test.log
+
