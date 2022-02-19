@@ -275,9 +275,6 @@ class MainWindow(QMainWindow):
         for i in range(len(self.server_list)):
             self.insert_server_list_table(i, self.server_list[i])
 
-    # Init server list table
-    logger.info('Initialize server list table')
-
     def init_server_list(self):
         logger.info('Initialize server list')
 
@@ -303,6 +300,7 @@ class MainWindow(QMainWindow):
 
     # Insert server list table
     def insert_server_list_table(self, row, server):
+        logger.info('Initialize server list table')
         cell_widget = QWidget()
         check_box_layout = QHBoxLayout()
         check_box_layout.addWidget(QCheckBox())
@@ -315,7 +313,7 @@ class MainWindow(QMainWindow):
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
 
-    # Resize server list table
+    # Resize server list table / Unused
     def resize_server_list_table(self):
         logger.info('Resize server list table')
 
