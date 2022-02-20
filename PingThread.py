@@ -4,12 +4,13 @@ from PyQt5.QtCore import QThread, pyqtSignal
 class PingThread(QThread):
     progress = pyqtSignal(int, list)
 
-    def __init__(self, currentRow, name, ip, logger):
+    def __init__(self, parent, currentRow, name, ip):
         QThread.__init__(self)
+        self.parent = parent
         self.currentRow = currentRow
         self.name = name
         self.ip = ip
-        self.logger = logger
+        self.logger = self.parent.logger
 
     def run(self):
         self.msleep(50)
