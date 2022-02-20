@@ -26,7 +26,7 @@
 
 ### 1-1. Installation
 
-1. Download the latest version from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) or Clone the
+1. Download the lastest version from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) or Clone the
    repository.
     1. ```git clone https://github.com/pepsizerosugar/python-ping-tester.git```
 
@@ -34,7 +34,8 @@
     1. When build is done, you can run the PingPong.exe in the dist folder.
     2. server_list.json file at top-level folder is automatically copy to dist folder.
        <br>
-       <img src="./resource/img/program_when_build_finished.png" alt="">
+       <img src="./resource/img/program_when_build_finished.PNG" alt="">
+3. Or downaload the lastest binary file what name "PingPong.zip" from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) and unzip it.
 
 ### 1-2. How to use
 
@@ -80,5 +81,5 @@
 
 * When you click the Ping button, the ping result will be shown in the list.
 * And the best ping time result will be shown in the messagebox when all ping finished.
-    * <img src="./resource/img/messagebox_when_ping_finished.png" alt="">
+    * <img src="./resource/img/messagebox_when_ping_finished.PNG" alt="">
 * After click the ok at messagebox, the ping result will automatically sort by ping time.
