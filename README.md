@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.2.0-green)
-![Update](https://img.shields.io/badge/Update-2022.02.20-darkgrey)
+![Version](https://img.shields.io/badge/Version-1.2.4-green)
+![Update](https://img.shields.io/badge/Update-2022.02.22-darkgrey)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
 * Ping test utility GUI
@@ -11,14 +11,13 @@
 
 ## 0. Change Log
 
-### version 1.2.0 (2022.02.20)
+### version 1.2.4 (2022.02.22)
 
 * Commit history
-    * [pepsi-026] added some resource, edited build.bat
-    * [pepsi-025] separated Main class to each method type
-    * [pepsi-024] changed demo to realtime version
-    * [pepsi-023] committed before separate method
-    * [pepsi-022] updated server list
+    * [pepsi-033] added old format server list json
+    * [pepsi-032] created result analyze class (but not used)
+    * [pepsi-031] moved count variable to progress handler, added while break at result set loop
+    * [pepsi-030] updated server list, changed the server list format and changed the parsing method accordingly.
 
 <br>
 
@@ -48,24 +47,22 @@
 
 ```json
 {
-  "server_list": [
-    {
-      "name": "Seoul",
-      "region": "ASI",
+  "server_list": {
+    "ServerName01": {
+      "region": "USA",
       "ip_addresses": [
-        "127.0.0.1",
-        "127.0.0.2"
+        "111.222.333.444",
+        "111.222.333.444"
       ]
     },
-    {
-      "name": "Germany",
-      "region": "EUR",
+    "ServerName02": {
+      "region": "OCE",
       "ip_addresses": [
-        "127.0.0.1",
-        "127.0.0.2"
+        "111.222.333.444",
+        "111.222.333.444"
       ]
-    }
-  ]
+    },
+  }
 }
 ```
 

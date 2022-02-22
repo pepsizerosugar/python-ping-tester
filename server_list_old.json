@@ -1,0 +1,482 @@
+{
+  "_comment": {
+    "_description": "This file is about game server list from 'Escape from Tarkov'",
+    "_source_1": "https://gist.github.com/fisune/1d01e761cef10274e34f07b44cdc86d1",
+    "_source_2": "https://github.com/tarkov-dev/TarkovPingTester/blob/master/TarkovPingTester/MainWindow.xaml.cs",
+    "_source_3": "Digging through the code, I found some server that not listed in source_1 and source_2",
+    "_author": [
+      "fisune",
+      "tarkov-dev"
+    ]
+  },
+  "server_list": [
+    {
+      "name": "Beauharnois",
+      "region": "USA",
+      "ip_addresses": [
+        "192.99.18.148",
+        "51.161.118.44"
+      ]
+    },
+    {
+      "name": "Germany",
+      "region": "EUR",
+      "ip_addresses": [
+        "176.57.181.239",
+        "176.57.181.247"
+      ]
+    },
+    {
+      "name": "Strasbourg",
+      "region": "EUR",
+      "ip_addresses": [
+        "92.42.105.134",
+        "92.42.104.238"
+      ]
+    },
+    {
+      "name": "Seoul",
+      "region": "ASI",
+      "ip_addresses": [
+        "92.38.165.133",
+        "92.38.165.134",
+        "92.38.165.135",
+        "92.38.165.136",
+        "92.38.165.137",
+        "92.38.165.138",
+        "92.38.165.139",
+        "92.38.165.140",
+        "92.38.165.141",
+        "92.38.165.142",
+        "92.38.165.143",
+        "92.38.165.144",
+        "92.38.165.145",
+        "92.38.165.146",
+        "92.38.165.147",
+        "92.223.73.8",
+        "92.223.73.16",
+        "92.223.73.29"
+      ]
+    },
+    {
+      "name": "Moscow",
+      "region": "RUS",
+      "ip_addresses": [
+        "176.99.3.55",
+        "176.99.3.81",
+        "176.99.3.79",
+        "176.99.3.175"
+      ]
+    },
+    {
+      "name": "Miami",
+      "region": "USA",
+      "ip_addresses": [
+        "23.82.136.213",
+        "92.223.66.13",
+        "192.155.110.78",
+        "192.155.106.110",
+        "192.155.108.142"
+      ]
+    },
+    {
+      "name": "StLouis",
+      "region": "USA",
+      "ip_addresses": [
+        "148.72.168.82",
+        "148.72.174.185",
+        "148.72.173.234",
+        "148.72.173.236",
+        "148.72.173.237"
+      ]
+    },
+    {
+      "name": "Ekaterinburg",
+      "region": "RUS",
+      "ip_addresses": [
+        "92.223.91.8",
+        "92.223.91.17"
+      ]
+    },
+    {
+      "name": "SaintPetersburg",
+      "region": "RUS",
+      "ip_addresses": [
+        "82.202.250.90",
+        "82.202.250.92",
+        "82.202.250.91",
+        "5.8.78.115",
+        "5.8.78.114"
+      ]
+    },
+    {
+      "name": "WashingtonDC",
+      "region": "USA",
+      "ip_addresses": [
+        "5.188.124.11",
+        "5.188.124.16",
+        "162.210.198.138",
+        "172.107.197.169",
+        "198.7.59.197"
+      ]
+    },
+    {
+      "name": "HongKong",
+      "region": "ASI",
+      "ip_addresses": [
+        "43.249.37.109",
+        "103.244.113.102",
+        "103.244.112.154",
+        "103.244.112.158",
+        "209.58.191.183",
+        "209.58.188.216"
+      ]
+    },
+    {
+      "name": "Chicago",
+      "region": "USA",
+      "ip_addresses": [
+        "108.62.107.8"
+      ]
+    },
+    {
+      "name": "Dallas",
+      "region": "USA",
+      "ip_addresses": [
+        "209.58.147.249",
+        "45.35.66.69"
+      ]
+    },
+    {
+      "name": "Nursultan",
+      "region": "RUS",
+      "ip_addresses": [
+        "94.247.134.219"
+      ]
+    },
+    {
+      "name": "London",
+      "region": "EUR",
+      "ip_addresses": [
+        "51.89.235.21",
+        "81.17.62.129",
+        "95.168.177.233",
+        "185.59.221.36"
+      ]
+    },
+    {
+      "name": "Europe",
+      "region": "EUR",
+      "ip_addresses": [
+        "78.138.127.150"
+      ]
+    },
+    {
+      "name": "Kazakhstan",
+      "region": "RUS",
+      "ip_addresses": [
+        "5.189.202.7",
+        "94.247.134.219"
+      ]
+    },
+    {
+      "name": "Seattle",
+      "region": "USA",
+      "ip_addresses": [
+        "23.19.87.236",
+        "84.17.41.37",
+        "108.62.5.69"
+      ]
+    },
+    {
+      "name": "California",
+      "region": "USA",
+      "ip_addresses": [
+        "45.35.136.145,",
+        "104.22.28.180",
+        "104.22.29.180",
+        "138.199.9.185",
+        "172.67.41.203"
+      ]
+    },
+    {
+      "name": "Turkey",
+      "region": "ME",
+      "ip_addresses": [
+        "92.38.180.19",
+        "92.38.180.18",
+        "92.38.180.24",
+        "92.38.180.89"
+      ]
+    },
+    {
+      "name": "Singapore",
+      "region": "ASI",
+      "ip_addresses": [
+        "23.106.120.84",
+        "23.106.120.89",
+        "23.106.120.91",
+        "209.58.171.67",
+        "209.58.169.122"
+      ]
+    },
+    {
+      "name": "Finland",
+      "region": "EUR",
+      "ip_addresses": [
+        "95.216.45.93",
+        "95.216.36.208"
+      ]
+    },
+    {
+      "name": "Helsinki",
+      "region": "EUR",
+      "ip_addresses": [
+        "95.217.105.51",
+        "95.216.36.208"
+      ]
+    },
+    {
+      "name": "Madrid",
+      "region": "EUR",
+      "ip_addresses": [
+        "5.188.148.14",
+        "5.188.148.17"
+      ]
+    },
+    {
+      "name": "Khabarovsk",
+      "region": "RUS",
+      "ip_addresses": [
+        "92.223.80.78",
+        "92.38.191.135",
+        "92.38.191.137",
+        "92.223.80.206"
+      ]
+    },
+    {
+      "name": "Australia",
+      "region": "OCE",
+      "ip_addresses": [
+        "103.101.129.122",
+        "137.59.253.18"
+      ]
+    },
+    {
+      "name": "France",
+      "region": "EUR",
+      "ip_addresses": [
+        "92.204.186.230",
+        "151.106.3.186"
+      ]
+    },
+    {
+      "name": "SanPaulo",
+      "region": "SAM",
+      "ip_addresses": [
+        "92.38.150.27",
+        "92.38.150.37",
+        "92.38.150.38",
+        "92.38.151.181",
+        "92.38.151.187"
+      ]
+    },
+    {
+      "name": "TelAviv",
+      "region": "ME",
+      "ip_addresses": [
+        "5.188.95.64"
+      ]
+    },
+    {
+      "name": "Israel",
+      "region": "ME",
+      "ip_addresses": [
+        "5.188.95.8"
+      ]
+    },
+    {
+      "name": "Netherlands",
+      "region": "EUR",
+      "ip_addresses": [
+        "81.171.15.112",
+        "92.38.140.36",
+        "185.76.10.37",
+        "195.181.173.195"
+      ]
+    },
+    {
+      "name": "Krasnoyarsk",
+      "region": "RUS",
+      "ip_addresses": [
+        "92.223.87.12",
+        "92.223.87.14",
+        "92.223.87.16",
+        "92.223.87.18",
+        "92.223.87.6"
+      ]
+    },
+    {
+      "name": "Milan",
+      "region": "EUR",
+      "ip_addresses": [
+        "92.38.174.13"
+      ]
+    },
+    {
+      "name": "Poland",
+      "region": "EUR",
+      "ip_addresses": [
+        "84.17.55.138"
+      ]
+    },
+    {
+      "name": "Taiwan",
+      "region": "ASI",
+      "ip_addresses": [
+        "43.251.182.44",
+        "43.251.182.48"
+      ]
+    },
+    {
+      "name": "Johannesburg",
+      "region": "AF",
+      "ip_addresses": [
+        "5.188.1.21",
+        "5.188.1.22",
+        "5.188.1.26",
+        "5.188.1.27"
+      ]
+    },
+    {
+      "name": "Vladivostok",
+      "region": "RUS",
+      "ip_addresses": [
+        "185.101.137.134",
+        "185.101.137.136",
+        "185.101.137.139"
+      ]
+    },
+    {
+      "name": "Sweden",
+      "region": "EUR",
+      "ip_addresses": [
+        "195.181.166.111",
+        "195.181.166.109"
+      ]
+    },
+    {
+      "name": "Denver",
+      "region": "USA",
+      "ip_addresses": [
+        "84.17.63.47"
+      ]
+    },
+    {
+      "name": "Dellas",
+      "region": "USA",
+      "ip_addresses": [
+        "172.241.25.143",
+        "172.241.25.146"
+      ]
+    },
+    {
+      "name": "Atlanta",
+      "region": "USA",
+      "ip_addresses": [
+        "185.93.0.83",
+        "195.181.171.198"
+      ]
+    },
+    {
+      "name": "Romania",
+      "region": "EUR",
+      "ip_addresses": [
+        "185.102.217.154",
+        "185.102.217.153"
+      ]
+    },
+    {
+      "name": "Austria",
+      "region": "EUR",
+      "ip_addresses": [
+        "185.180.12.86",
+        "185.180.12.85"
+      ]
+    },
+    {
+      "name": "Slovakia",
+      "region": "EUR",
+      "ip_addresses": [
+        "156.146.40.113",
+        "156.146.40.73"
+      ]
+    },
+    {
+      "name": "Czech",
+      "region": "EUR",
+      "ip_addresses": [
+        "89.187.191.202",
+        "212.102.38.51"
+      ]
+    },
+    {
+      "name": "Denver",
+      "region": "USA",
+      "ip_addresses": [
+        "84.17.63.82"
+      ]
+    },
+    {
+      "name": "Novosibirsk",
+      "region": "RUS",
+      "ip_addresses": [
+        "5.8.42.8",
+        "5.8.42.6"
+      ]
+    },
+    {
+      "name": "Japan",
+      "region": "ASI",
+      "ip_addresses": [
+        "103.208.221.211",
+        "103.208.221.213",
+        "143.244.40.205"
+      ]
+    },
+    {
+      "name": "Tokyo",
+      "region": "ASI",
+      "ip_addresses": [
+        "5.188.71.31",
+        "5.188.71.85",
+        "5.188.71.108",
+        "5.188.71.112",
+        "103.208.220.218"
+      ]
+    },
+    {
+      "name": "Spain",
+      "region": "EUR",
+      "ip_addresses": [
+        "212.102.48.152",
+        "212.102.48.153"
+      ]
+    },
+    {
+      "name": "NewYork",
+      "region": "USA",
+      "ip_addresses": [
+        "89.187.178.80",
+        "89.187.178.79"
+      ]
+    },
+    {
+      "name": "Ukraine",
+      "region": "EUR",
+      "ip_addresses": [
+        "185.101.138.136"
+      ]
+    }
+  ]
+}

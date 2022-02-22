@@ -30,7 +30,6 @@ class InitUI:
         self.progress_bar = QProgressBar()
 
         # for ProgressHandler
-        self.count = 0
         self.checked_server_list = []
         self.button_handler = ButtonHandler(self)
         self.enable_buttons = self.button_handler.enable_buttons
@@ -145,13 +144,13 @@ class InitUI:
                 import json
                 data = json.load(f)
                 server_list = data['server_list']
-                server_list = sorted(server_list, key=lambda x: x['name'])
-                for i in range(len(server_list)):
-                    for j in range(len(server_list[i]['ip_addresses'])):
+                json.dumps(server_list, sort_keys=True)
+                for server in server_list:
+                    for ip in server_list[server]['ip_addresses']:
                         server_structure.append({
-                            'server': server_list[i]['name'],
-                            'region': server_list[i]['region'],
-                            'ip': server_list[i]['ip_addresses'][j],
+                            'server': server,
+                            'region': server_list[server]['region'],
+                            'ip': ip,
                         })
         except FileNotFoundError:
             server_structure = []
