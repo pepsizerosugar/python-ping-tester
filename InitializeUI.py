@@ -30,7 +30,6 @@ class InitUI:
         self.progress_bar = QProgressBar()
 
         # for ProgressHandler
-        self.count = 0
         self.checked_server_list = []
         self.button_handler = ButtonHandler(self)
         self.enable_buttons = self.button_handler.enable_buttons
