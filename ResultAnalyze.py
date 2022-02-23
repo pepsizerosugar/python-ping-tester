@@ -8,7 +8,7 @@ class Analyze:
         self.convert_result_table_to_model()
 
     def convert_result_table_to_model(self):
-        self.logger.info("Analyze.result_table_to_model")
+        self.logger.info("Analyze")
         self.result_model_by_server = {}
         self.result_model_by_region = {}
 
@@ -37,13 +37,13 @@ class Analyze:
         for key, value in self.result_model_by_server.items():
             self.result_model_by_server[key]["avg"] = \
                 round(self.result_model_by_server[key]["avg"] / self.result_model_by_server[key]["count"])
-        self.logger.info("Analyze.result_table_to_model: result_model_by_server: %s", self.result_model_by_server)
+        self.logger.info("Analyze.result_model_by_server: %s", self.result_model_by_server)
 
         # calculate average by region
         for key, value in self.result_model_by_region.items():
             self.result_model_by_region[key]["avg"] = \
                 round(self.result_model_by_region[key]["avg"] / self.result_model_by_region[key]["count"])
-        self.logger.info("Analyze.result_table_to_model: result_model_by_region: %s", self.result_model_by_region)
+        self.logger.info("Analyze.result_model_by_region: %s", self.result_model_by_region)
 
     def get_result_model_by_server(self):
         return self.result_model_by_server

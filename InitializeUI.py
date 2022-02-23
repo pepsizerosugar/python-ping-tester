@@ -115,8 +115,8 @@ class InitUI:
         # Set server list table
         self.server_list_table.setRowCount(len(self.server_list))
         self.logger.info('Initialize server list table')
-        for i in range(len(self.server_list)):
-            self.insert_server_list_table(i, self.server_list[i])
+        for i, server in enumerate(self.server_list):
+            self.insert_server_list_table(i, server)
 
     # Init widget
     def init_widget(self):

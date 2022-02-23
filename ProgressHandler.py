@@ -2,6 +2,8 @@ from PyQt5.QtCore import pyqtSlot, Qt, QObject
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
+from ResultAnalyze import Analyze
+
 
 class ProgressHandler(QObject):
     def __init__(self, parent):
@@ -53,6 +55,7 @@ class ProgressHandler(QObject):
 
         if self.count == len(self.parent.checked_server_list):
             self.logger.info('Ping finished')
+            Analyze(self.parent)
             self.parent.server_list_table.sortByColumn(6, Qt.AscendingOrder)
 
             best_server = self.parent.server_list_table.item(0, 1).text()
