@@ -67,11 +67,11 @@ class InitUI:
 
     # Init group box
     def init_group_box(self):
-        self.init_ping_btn_groupbox()
+        self.init_interaction_groupbox()
         self.init_server_list_groupbox()
 
     # Init ping button group box
-    def init_ping_btn_groupbox(self):
+    def init_interaction_groupbox(self):
         self.logger.info('Initialize Ping Button Group Box')
 
         self.ping_btn_group_box = QGroupBox("Ping")
