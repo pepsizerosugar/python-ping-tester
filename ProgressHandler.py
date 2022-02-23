@@ -2,7 +2,7 @@ from PyQt5.QtCore import pyqtSlot, Qt, QObject
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
-from ResultAnalyze import Analyze
+from ResultAnalyze import ResultAnalyze
 
 
 class ProgressHandler(QObject):
@@ -56,12 +56,12 @@ class ProgressHandler(QObject):
         if self.count == len(self.parent.checked_server_list):
             self.logger.info('Ping finished')
             self.parent.server_list_table.sortByColumn(6, Qt.AscendingOrder)
-            Analyze(self.parent)
+            ResultAnalyze(self.parent)
 
             best_server = self.parent.server_list_table.item(0, 1).text()
             best_server_ip = self.parent.server_list_table.item(0, 3).text()
             best_server_ping = self.parent.server_list_table.item(0, 6).text()
-            QMessageBox.information(self.parent.parent, 'Info',
+            QMessageBox.information(self.parent.parent, 'Pong',
                                     'Ping finished\n'
                                     'Best server : ' + best_server + '(' + best_server_ip + ') with ping ' + best_server_ping)
 

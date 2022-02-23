@@ -1,8 +1,10 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGridLayout, QGroupBox, QPushButton, QTableWidget, QWidget, QDesktopWidget, QMessageBox, \
-    QHBoxLayout, QCheckBox, QTableWidgetItem, QProgressBar
+    QHBoxLayout, QCheckBox, QTableWidgetItem, QProgressBar, QComboBox
 
 from ButtonHandler import ButtonHandler
+from ComboBoxHandler import ComboBoxHandler
+from ServerAnalyze import ServerAnalyze
 
 
 class InitUI:
@@ -10,6 +12,7 @@ class InitUI:
         super().__init__()
         self.logger = None
         self.parent = parent
+        self.server_analyzer = None
 
         self.init_logger()
         self.logger.info('Initialize UI')
@@ -18,10 +21,17 @@ class InitUI:
         self.main_widget = None
 
         self.ping_btn_group_box = None
-        self.check_all_btn = None
-        self.uncheck_all_btn = None
+        self.type_combo_box = None
+        self.select_combo_box = None
+        self.collection = None
+        self.check_btn = None
+        self.uncheck_btn = None
         self.ping_btn = None
         self.clear_btn = None
+        self.select_type = None
+        self.select_type_of_first = 'All'
+        self.select_type_of_second = None
+        self.combobox_handler = ComboBoxHandler(self)
 
         self.server_list_group_box = None
         self.server_list_table = None
@@ -32,11 +42,7 @@ class InitUI:
         # for ProgressHandler
         self.checked_server_list = []
         self.button_handler = ButtonHandler(self)
-        self.enable_buttons = self.button_handler.enable_buttons
-
-        self.init_layout()
-        self.init_widget()
-        self.move_center()
+        self.enable_buttons = self.button_handler.enable_interaction
 
         self.logger.info('Initialize UI finished')
 
@@ -56,6 +62,9 @@ class InitUI:
         self.main_layout.addWidget(self.server_list_group_box, 1, 0)
         self.main_layout.addWidget(self.progress_bar, 2, 0)
 
+        self.init_widget()
+        self.move_center()
+
     # Init group box
     def init_group_box(self):
         self.init_ping_btn_groupbox()
@@ -68,21 +77,44 @@ class InitUI:
         self.ping_btn_group_box = QGroupBox("Ping")
         self.ping_btn_group_box.setLayout(QGridLayout())
 
-        self.check_all_btn = QPushButton("Check All")
-        self.uncheck_all_btn = QPushButton("Uncheck All")
+        self.init_combo_box()
+
+        self.check_btn = QPushButton("Check")
+        self.uncheck_btn = QPushButton("Uncheck")
         self.ping_btn = QPushButton("Ping")
         self.clear_btn = QPushButton("Clear")
 
-        self.ping_btn_group_box.layout().addWidget(self.check_all_btn, 0, 1)
-        self.ping_btn_group_box.layout().addWidget(self.uncheck_all_btn, 0, 2)
-        self.ping_btn_group_box.layout().addWidget(self.ping_btn, 0, 3)
-        self.ping_btn_group_box.layout().addWidget(self.clear_btn, 0, 4)
+        self.ping_btn_group_box.layout().addWidget(self.check_btn, 0, 3)
+        self.ping_btn_group_box.layout().addWidget(self.uncheck_btn, 0, 4)
+        self.ping_btn_group_box.layout().addWidget(self.ping_btn, 0, 5)
+        self.ping_btn_group_box.layout().addWidget(self.clear_btn, 0, 6)
 
         # Set button event handler
-        self.check_all_btn.clicked.connect(self.button_handler.check_all_btn_clicked)
-        self.uncheck_all_btn.clicked.connect(self.button_handler.uncheck_all_btn_clicked)
+        self.check_btn.clicked.connect(self.button_handler.check_btn_clicked)
+        self.uncheck_btn.clicked.connect(self.button_handler.uncheck_btn_clicked)
         self.ping_btn.clicked.connect(self.button_handler.ping_btn_clicked)
         self.clear_btn.clicked.connect(self.button_handler.clear_btn_clicked)
+
+    # Init combo box
+    def init_combo_box(self):
+        self.type_combo_box = QComboBox()
+        self.select_combo_box = QComboBox()
+
+        self.type_combo_box.addItems(['All', 'Server', 'Region'])
+
+        # Set combo box event handler
+        self.type_combo_box.currentIndexChanged.connect(self.combobox_handler.type_combo_box_changed)
+        self.select_combo_box.currentIndexChanged.connect(self.combobox_handler.select_combo_box_changed)
+
+        # Init server list
+        self.server_list = self.init_server_list()
+        self.server_analyzer = ServerAnalyze(self)
+        self.server_analyzer.collect_by_server()
+
+        self.collection = self.server_analyzer.get_server_collection()
+
+        self.ping_btn_group_box.layout().addWidget(self.type_combo_box, 0, 0)
+        self.ping_btn_group_box.layout().addWidget(self.select_combo_box, 0, 1)
 
     # Init server list group box
     def init_server_list_groupbox(self):
@@ -109,9 +141,6 @@ class InitUI:
 
         self.server_list_group_box.layout().addWidget(self.server_list_table, 0, 0)
 
-        # Init server list
-        self.server_list = self.init_server_list(self.parent)
-
         # Set server list table
         self.server_list_table.setRowCount(len(self.server_list))
         self.logger.info('Initialize server list table')
@@ -134,7 +163,7 @@ class InitUI:
         self.parent.move(qr.topLeft())
 
     # Init server list
-    def init_server_list(self, parent):
+    def init_server_list(self):
         self.logger.info('Initialize server list')
 
         # Load server list

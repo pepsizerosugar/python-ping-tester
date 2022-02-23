@@ -1,4 +1,4 @@
-class Analyze:
+class ResultAnalyze:
     def __init__(self, parent):
         super().__init__()
         self.parent = parent
@@ -8,7 +8,7 @@ class Analyze:
         self.convert_result_table_to_model()
 
     def convert_result_table_to_model(self):
-        self.logger.info("Analyze")
+        self.logger.info("Analyze_result")
         self.result_model_by_server = {}
         self.result_model_by_region = {}
 
