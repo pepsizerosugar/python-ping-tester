@@ -55,8 +55,8 @@ class ProgressHandler(QObject):
 
         if self.count == len(self.parent.checked_server_list):
             self.logger.info('Ping finished')
-            Analyze(self.parent)
             self.parent.server_list_table.sortByColumn(6, Qt.AscendingOrder)
+            Analyze(self.parent)
 
             best_server = self.parent.server_list_table.item(0, 1).text()
             best_server_ip = self.parent.server_list_table.item(0, 3).text()

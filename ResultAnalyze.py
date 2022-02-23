@@ -12,7 +12,7 @@ class Analyze:
         self.result_model_by_server = {}
         self.result_model_by_region = {}
 
-        for i in range(self.parent.server_list_table.rowCount()):
+        for i in range(len(self.parent.checked_server_list)):
             row_server = self.parent.server_list_table.item(i, 1).text()
             row_region = self.parent.server_list_table.item(i, 2).text()
             row_avg = self.parent.server_list_table.item(i, 6).text()
