@@ -5,6 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
 * Ping test utility GUI
+* Make with 'PyQt5' GUI library
   <br><br>
   <img src="./resource/img/demo.gif" alt="">
   <br><br>
