@@ -11,6 +11,7 @@ class ProgressHandler(QObject):
         self.parent = parent
         self.logger = self.parent.logger
         self.count = 0
+        self.ping_result_model = []
 
     # Handling ping_thread progress
     @pyqtSlot(int, list)
@@ -19,6 +20,18 @@ class ProgressHandler(QObject):
         self.count += 1
         self.parent.progress_bar.setRange(0, len(self.parent.checked_server_list))
         self.parent.progress_bar.setValue(self.count)
+        server = self.parent.server_list_table.item(currentRow, 1).text()
+        region = self.parent.server_list_table.item(currentRow, 2).text()
+        ip = self.parent.server_list_table.item(currentRow, 3).text()
+        self.ping_result_model.append(
+            {
+                'row': currentRow,
+                'server': server,
+                'region': region,
+                'ip': ip,
+                'result': result
+            }
+        )
 
         for i in range(3):
             value = result[i]
@@ -56,7 +69,7 @@ class ProgressHandler(QObject):
         if self.count == len(self.parent.checked_server_list):
             self.logger.info('Ping finished')
             self.parent.server_list_table.sortByColumn(6, Qt.AscendingOrder)
-            ResultAnalyze(self.parent)
+            ResultAnalyze(self.parent, self.ping_result_model).convert_result_table_to_model()
 
             best_server = self.parent.server_list_table.item(0, 1).text()
             best_server_ip = self.parent.server_list_table.item(0, 3).text()
@@ -65,6 +78,7 @@ class ProgressHandler(QObject):
                                     'Ping finished\n'
                                     'Best server : ' + best_server + '(' + best_server_ip + ') with ping ' + best_server_ping)
 
+            self.ping_result_model = []
             self.parent.progress_bar.reset()
             self.parent.enable_buttons()
             self.count = 0

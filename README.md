@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.2.4-green)
-![Update](https://img.shields.io/badge/Update-2022.02.22-darkgrey)
+![Version](https://img.shields.io/badge/Version-1.3.0-green)
+![Update](https://img.shields.io/badge/Update-2022.02.**-darkgrey)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
 * Ping test utility GUI
@@ -11,13 +11,14 @@
 
 ## 0. Change Log
 
-### version 1.2.4 (2022.02.22)
+### version 1.3.0 (2022.02.**)
 
 * Commit history
-    * [pepsi-033] added old format server list json
-    * [pepsi-032] created result analyze class (but not used)
-    * [pepsi-031] moved count variable to progress handler, added while break at result set loop
-    * [pepsi-030] updated server list, changed the server list format and changed the parsing method accordingly.
+    * [pepsi-039] changed group box name
+    * [pepsi-038] created combobox for select specific options
+    * [pepsi-037] changed analyze order
+    * [pepsi-036] changed build script to add resource
+    * [pepsi-035] changed icon path
 
 <br>
 

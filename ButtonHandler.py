@@ -52,7 +52,7 @@ class ButtonHandler:
                 server_name = self.parent.server_list_table.item(row, 1).text()
                 server_ip = self.parent.server_list_table.item(row, 3).text()
                 ping_thread = PingThread(self.parent, row, server_name, server_ip)
-                self.parent.checked_server_list.append(ping_thread)
+                self.parent.checked_server_list.append([ping_thread, row])
 
                 # Change result table cell to 'Pinging...'
                 for j in range(4, 7):
@@ -63,8 +63,8 @@ class ButtonHandler:
         # Start ping thread
         if len(self.parent.checked_server_list) > 0:
             for thread in self.parent.checked_server_list:
-                thread.progress.connect(self.progress_handler.handle_progress)
-                thread.start()
+                thread[0].progress.connect(self.progress_handler.handle_progress)
+                thread[0].start()
         else:
             QMessageBox.warning(self.parent.parent, 'Warn', 'Please select server to ping.')
             self.parent.progress_bar.setRange(0, 1)
@@ -79,7 +79,7 @@ class ButtonHandler:
         # clear result tabel cell
         for row in range(self.parent.server_list_table.rowCount()):
             for j in range(4, 7):
-                self.parent.server_list_table.setItem(row, j, QTableWidgetItem(''))
+                self.parent.server_list_table.takeItem(row, j)
 
     # disable buttons
     def disable_interaction(self):
