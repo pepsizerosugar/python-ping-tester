@@ -14,6 +14,7 @@
 ### version 1.3.0 (2022.02.**)
 
 * Commit history
+    * [pepsi-040] changed ping result parsing flow to avoid errors from QTableWidget sorting API
     * [pepsi-039] changed group box name
     * [pepsi-038] created combobox for select specific options
     * [pepsi-037] changed analyze order
