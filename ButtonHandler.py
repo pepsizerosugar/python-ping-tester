@@ -55,7 +55,7 @@ class ButtonHandler:
                 self.parent.checked_server_list.append([ping_thread, row])
 
                 # Change result table cell to 'Pinging...'
-                for j in range(4, 7):
+                for j in range(4, 8):
                     self.parent.server_list_table.setItem(row, j, QTableWidgetItem('Pinging...'))
                     self.parent.server_list_table.item(row, j).setForeground(QBrush(QColor(0, 150, 0)))
                 self.parent.server_list_table.repaint()
@@ -78,7 +78,7 @@ class ButtonHandler:
 
         # clear result tabel cell
         for row in range(self.parent.server_list_table.rowCount()):
-            for j in range(4, 7):
+            for j in range(4, 8):
                 self.parent.server_list_table.takeItem(row, j)
 
     # disable buttons

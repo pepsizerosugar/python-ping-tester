@@ -126,9 +126,9 @@ class InitUI:
         # Set server list table
         self.server_list_table = QTableWidget()
         self.server_list_table.setSortingEnabled(False)
-        self.server_list_table.setColumnCount(7)
+        self.server_list_table.setColumnCount(8)
         self.server_list_table.setHorizontalHeaderLabels(
-            ['✔', 'Server', 'Region', 'IP', 'Min(ms)', 'Max(ms)', 'Avg(ms)'])
+            ['✔', 'Server', 'Region', 'IP', 'Min(ms)', 'Max(ms)', 'Avg(ms)', 'Loss(%)'])
 
         # First init server list table size
         self.server_list_table.setColumnWidth(0, 10)
@@ -138,6 +138,7 @@ class InitUI:
         self.server_list_table.setColumnWidth(4, 70)
         self.server_list_table.setColumnWidth(5, 70)
         self.server_list_table.setColumnWidth(6, 70)
+        self.server_list_table.setColumnWidth(7, 70)
 
         self.server_list_group_box.layout().addWidget(self.server_list_table, 0, 0)
 
