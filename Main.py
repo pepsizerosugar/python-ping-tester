@@ -34,7 +34,7 @@ if __name__ == '__main__':
     # Set Dark Theme
     qtmodern.styles.dark(app)
     mw = qtmodern.windows.ModernWindow(window)
-    mw.setFixedSize(600, 500)
+    mw.setFixedSize(670, 550)
     mw.show()
 
     sys.exit(app.exec_())
