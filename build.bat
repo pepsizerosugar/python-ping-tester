@@ -1,4 +1,4 @@
 @echo off
-pyinstaller --onefile --noconsole --icon=resource\img\icon.ico --name=PingPong Main.py
+pyinstaller -F -w -i resource\img\icon.ico --add-data="resource/img/icon.ico;resource/img" -n PingPong Main.py
 copy server_list.json dist
 pause

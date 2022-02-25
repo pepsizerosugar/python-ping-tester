@@ -1,3 +1,4 @@
+import os.path
 import sys
 
 import qtmodern.styles
@@ -7,6 +8,8 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 
 from InitializeUI import InitUI
 
+basedir = os.path.dirname(__file__)
+
 
 # Main Class
 class MainClass(QMainWindow):
@@ -14,8 +17,6 @@ class MainClass(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Ping Pong")
-        self.setWindowIcon(QIcon('resource/img/icon.ico'))
-
         self.init_ui()
 
     # Init UI
@@ -27,12 +28,13 @@ class MainClass(QMainWindow):
 # Main
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(os.path.join(basedir, 'resource/img/icon.ico')))
     window = MainClass()
 
     # Set Dark Theme
     qtmodern.styles.dark(app)
     mw = qtmodern.windows.ModernWindow(window)
-    mw.setFixedSize(600, 500)
+    mw.setFixedSize(670, 550)
     mw.show()
 
     sys.exit(app.exec_())
