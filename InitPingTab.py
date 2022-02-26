@@ -1,24 +1,23 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGridLayout, QGroupBox, QPushButton, QTableWidget, QWidget, QDesktopWidget, QMessageBox, \
-    QHBoxLayout, QCheckBox, QTableWidgetItem, QProgressBar, QComboBox
+    QHBoxLayout, QCheckBox, QTableWidgetItem, QProgressBar, QComboBox, QTabWidget, QVBoxLayout
 
 from ButtonHandler import ButtonHandler
 from ComboBoxHandler import ComboBoxHandler
 from ServerAnalyze import ServerAnalyze
 
 
-class InitUI:
+class InitPingTab:
     def __init__(self, parent):
         super().__init__()
-        self.logger = None
         self.parent = parent
+        self.logger = self.parent.logger
         self.server_analyzer = None
 
-        self.init_logger()
-        self.logger.info('Initialize UI')
+        self.logger.info('Initialize Ping Tab')
 
-        self.main_layout = QGridLayout()
-        self.main_widget = None
+        self.ping_layout = QGridLayout()
+        self.ping_widget = None
 
         self.ping_btn_group_box = None
         self.type_combo_box = None
@@ -51,19 +50,18 @@ class InitUI:
         self.logger.info('Initialize layout')
 
         # Set style
-        self.main_layout.setSpacing(10)
-        self.main_layout.setContentsMargins(10, 10, 10, 10)
+        self.ping_layout.setSpacing(10)
+        self.ping_layout.setContentsMargins(10, 10, 10, 10)
 
         # Init group box
         self.init_group_box()
 
         # Add Widgets to layout
-        self.main_layout.addWidget(self.ping_btn_group_box, 0, 0)
-        self.main_layout.addWidget(self.server_list_group_box, 1, 0)
-        self.main_layout.addWidget(self.progress_bar, 2, 0)
+        self.ping_layout.addWidget(self.ping_btn_group_box, 0, 0)
+        self.ping_layout.addWidget(self.server_list_group_box, 1, 0)
+        self.ping_layout.addWidget(self.progress_bar, 2, 0)
 
         self.init_widget()
-        self.move_center()
 
     # Init group box
     def init_group_box(self):
@@ -74,7 +72,7 @@ class InitUI:
     def init_interaction_groupbox(self):
         self.logger.info('Initialize Ping Button Group Box')
 
-        self.ping_btn_group_box = QGroupBox("Ping")
+        self.ping_btn_group_box = QGroupBox()
         self.ping_btn_group_box.setLayout(QGridLayout())
 
         self.init_combo_box()
@@ -120,7 +118,7 @@ class InitUI:
     def init_server_list_groupbox(self):
         self.logger.info('Initialize Server List Group Box')
 
-        self.server_list_group_box = QGroupBox("Server List")
+        self.server_list_group_box = QGroupBox()
         self.server_list_group_box.setLayout(QGridLayout())
 
         # Set server list table
@@ -134,7 +132,7 @@ class InitUI:
         self.server_list_table.setColumnWidth(0, 10)
         self.server_list_table.setColumnWidth(1, 100)
         self.server_list_table.setColumnWidth(2, 50)
-        self.server_list_table.setColumnWidth(3, 120)
+        self.server_list_table.setColumnWidth(3, 115)
         self.server_list_table.setColumnWidth(4, 70)
         self.server_list_table.setColumnWidth(5, 70)
         self.server_list_table.setColumnWidth(6, 70)
@@ -147,21 +145,6 @@ class InitUI:
         self.logger.info('Initialize server list table')
         for i, server in enumerate(self.server_list):
             self.insert_server_list_table(i, server)
-
-    # Init widget
-    def init_widget(self):
-        self.logger.info('Initialize widget')
-
-        self.main_widget = QWidget()
-        self.main_widget.setLayout(self.main_layout)
-        self.parent.setCentralWidget(self.main_widget)
-
-    # Center Window
-    def move_center(self):
-        qr = self.parent.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.parent.move(qr.topLeft())
 
     # Init server list
     def init_server_list(self):
@@ -202,12 +185,9 @@ class InitUI:
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
 
-    def init_logger(self):
-        import logging.handlers
-        self.logger = logging.getLogger('ping_test_logger')
-        self.logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler = logging.handlers.RotatingFileHandler('ping_test.log', maxBytes=1048576, backupCount=5)
-        handler.setFormatter(formatter)
-        self.logger.addHandler(handler)
-        self.logger.info('Start Ping Test app')
+    # Init widget
+    def init_widget(self):
+        self.logger.info('Initialize widget')
+
+        self.ping_widget = QWidget()
+        self.ping_widget.setLayout(self.ping_layout)
