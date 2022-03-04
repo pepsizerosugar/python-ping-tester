@@ -3,6 +3,7 @@ import sys
 
 import qtmodern.styles
 import qtmodern.windows
+from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
@@ -27,6 +28,7 @@ class MainClass(QMainWindow):
 
 # Main
 if __name__ == '__main__':
+    QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(os.path.join(basedir, 'resource/img/icon.ico')))
     window = MainClass()
