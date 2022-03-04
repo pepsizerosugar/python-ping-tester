@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.3.0-green)
-![Update](https://img.shields.io/badge/Update-2022.02.25-blue)
+![Version](https://img.shields.io/badge/Version-1.3.4-green)
+![Update](https://img.shields.io/badge/Update-2022.03.04-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
 * Ping test utility GUI
@@ -12,22 +12,10 @@
 
 ## 0. Change Log
 
-### version 1.3.0 (2022.02.25)
+### version 1.3.1 (2022.03.04)
 
 * Commit history
-    * [pepsi-047] updated demo gif
-    * [pepsi-046] updated server list
-    * [pepsi-045] added rank of result
-    * [pepsi-044] added ping loss parsing
-    * [pepsi-043] added ping loss column
-    * [pepsi-042] changed demo gif
-    * [pepsi-041] changed README.md
-    * [pepsi-040] changed ping result parsing flow to avoid errors from QTableWidget sorting API
-    * [pepsi-039] changed group box name
-    * [pepsi-038] created combobox for select specific options
-    * [pepsi-037] changed analyze order
-    * [pepsi-036] changed build script to add resource
-    * [pepsi-035] changed icon path
+    * [pepsi-hotfix-001] edited QApplication attribute to enable high DPI
 
 <br>
 
