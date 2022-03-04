@@ -1,6 +1,6 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.3.4-green)
+![Version](https://img.shields.io/badge/Version-1.3.1-green)
 ![Update](https://img.shields.io/badge/Update-2022.03.04-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 
