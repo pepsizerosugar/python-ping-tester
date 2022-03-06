@@ -4,7 +4,7 @@ from PyQt5.QtCore import pyqtSlot, Qt, QObject
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
-from ResultAnalyze import ResultAnalyze
+from Modules.Analyze.ResultAnalyze import ResultAnalyze
 
 
 class ProgressHandler(QObject):
