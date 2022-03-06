@@ -28,7 +28,7 @@ class PingThread(QThread):
             stdout = stdout.decode("cp949").split('\n')
             packet = stdout[-4].replace(" ", "")
             ping_time = stdout[-2].replace(" ", "")
-            loss = re.findall(r"\d{1}%", packet)[0]
+            loss = re.findall(r"\d{1,3}%", packet)[0]
             result = re.findall(r"\d{1,3}ms", ping_time)
 
             if len(result) != 3:
