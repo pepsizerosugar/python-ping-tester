@@ -51,7 +51,7 @@ if __name__ == '__main__':
     basedir = os.path.dirname(__file__)
 
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon(os.path.join(basedir, 'Resource/img/icon.ico')))
+    app.setWindowIcon(QIcon(os.path.join(basedir, 'Resource/Img/icon.ico')))
     qtmodern.styles.dark(app)
 
     window = MainClass()
