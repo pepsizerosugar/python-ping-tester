@@ -73,8 +73,10 @@ class InitUI:
     def init_interaction_groupbox(self):
         self.logger.info('Initialize Ping Button Group Box')
 
-        self.ping_btn_group_box = QGroupBox("Ping")
+        self.ping_btn_group_box = QGroupBox()
         self.ping_btn_group_box.setLayout(QGridLayout())
+        self.ping_btn_group_box.setStyleSheet(
+            "QGroupBox { background-color: palette(alternate-base);  border: 1px solid palette(midlight); margin-top: 0px; }")
 
         self.init_combo_box()
 
@@ -119,8 +121,10 @@ class InitUI:
     def init_server_list_groupbox(self):
         self.logger.info('Initialize Server List Group Box')
 
-        self.server_list_group_box = QGroupBox("Server List")
+        self.server_list_group_box = QGroupBox()
         self.server_list_group_box.setLayout(QGridLayout())
+        self.server_list_group_box.setStyleSheet(
+            "QGroupBox { background-color: palette(alternate-base);  border: 1px solid palette(midlight); margin-top: 0px; }")
 
         # Set server list table
         self.server_list_table = QTableWidget()
