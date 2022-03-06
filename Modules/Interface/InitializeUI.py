@@ -151,21 +151,6 @@ class InitUI:
         for i, server in enumerate(self.server_list):
             self.insert_server_list_table(i, server)
 
-    # Init widget
-    def init_widget(self):
-        self.logger.info('Initialize widget')
-
-        self.main_widget = QWidget()
-        self.main_widget.setLayout(self.main_layout)
-        self.parent.setCentralWidget(self.main_widget)
-
-    # Center Window
-    def move_center(self):
-        qr = self.parent.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.parent.move(qr.topLeft())
-
     # Init server list
     def init_server_list(self):
         self.logger.info('Initialize server list')
@@ -204,3 +189,18 @@ class InitUI:
         self.server_list_table.setItem(row, 1, QTableWidgetItem(server['server']))
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
+
+    # Init widget
+    def init_widget(self):
+        self.logger.info('Initialize widget')
+
+        self.main_widget = QWidget()
+        self.main_widget.setLayout(self.main_layout)
+        self.parent.setCentralWidget(self.main_widget)
+
+    # Center Window
+    def move_center(self):
+        qr = self.parent.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.parent.move(qr.topLeft())
