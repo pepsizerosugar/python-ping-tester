@@ -25,15 +25,21 @@ class MainClass(QMainWindow):
     def init_logger(self):
         import logging.handlers
         import os
+        import datetime
 
         os.makedirs('Logs', exist_ok=True)
+        datetime_str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
         self.logger = logging.getLogger('ping_test_logger')
         self.logger.setLevel(logging.DEBUG)
 
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-        handler = logging.handlers.RotatingFileHandler('Logs/ping_test.log', maxBytes=1048576, backupCount=5)
+        handler = logging.handlers.RotatingFileHandler(
+            os.path.join('Logs', 'ping_test_log_' + datetime_str + '.log'),
+            maxBytes=1048576,
+            backupCount=5
+        )
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
         self.logger.info('Start Ping Pong app')
