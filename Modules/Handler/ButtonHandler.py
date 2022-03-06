@@ -1,8 +1,8 @@
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 
-from PingThread import PingThread
-from ProgressHandler import ProgressHandler
+from Modules.Handler.ProgressHandler import ProgressHandler
+from Modules.Thread.PingThread import PingThread
 
 
 class ButtonHandler:

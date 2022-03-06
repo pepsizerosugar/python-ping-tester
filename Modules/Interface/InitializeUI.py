@@ -2,19 +2,18 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGridLayout, QGroupBox, QPushButton, QTableWidget, QWidget, QDesktopWidget, QMessageBox, \
     QHBoxLayout, QCheckBox, QTableWidgetItem, QProgressBar, QComboBox
 
-from ButtonHandler import ButtonHandler
-from ComboBoxHandler import ComboBoxHandler
-from ServerAnalyze import ServerAnalyze
+from Modules.Analyze.ServerAnalyze import ServerAnalyze
+from Modules.Handler.ButtonHandler import ButtonHandler
+from Modules.Handler.ComboBoxHandler import ComboBoxHandler
 
 
 class InitUI:
     def __init__(self, parent):
         super().__init__()
-        self.logger = None
+        self.logger = parent.logger
         self.parent = parent
         self.server_analyzer = None
 
-        self.init_logger()
         self.logger.info('Initialize UI')
 
         self.main_layout = QGridLayout()
@@ -74,8 +73,10 @@ class InitUI:
     def init_interaction_groupbox(self):
         self.logger.info('Initialize Ping Button Group Box')
 
-        self.ping_btn_group_box = QGroupBox("Ping")
+        self.ping_btn_group_box = QGroupBox()
         self.ping_btn_group_box.setLayout(QGridLayout())
+        self.ping_btn_group_box.setStyleSheet(
+            "QGroupBox { background-color: palette(alternate-base);  border: 1px solid palette(midlight); margin-top: 0px; }")
 
         self.init_combo_box()
 
@@ -120,8 +121,10 @@ class InitUI:
     def init_server_list_groupbox(self):
         self.logger.info('Initialize Server List Group Box')
 
-        self.server_list_group_box = QGroupBox("Server List")
+        self.server_list_group_box = QGroupBox()
         self.server_list_group_box.setLayout(QGridLayout())
+        self.server_list_group_box.setStyleSheet(
+            "QGroupBox { background-color: palette(alternate-base);  border: 1px solid palette(midlight); margin-top: 0px; }")
 
         # Set server list table
         self.server_list_table = QTableWidget()
@@ -148,21 +151,6 @@ class InitUI:
         for i, server in enumerate(self.server_list):
             self.insert_server_list_table(i, server)
 
-    # Init widget
-    def init_widget(self):
-        self.logger.info('Initialize widget')
-
-        self.main_widget = QWidget()
-        self.main_widget.setLayout(self.main_layout)
-        self.parent.setCentralWidget(self.main_widget)
-
-    # Center Window
-    def move_center(self):
-        qr = self.parent.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.parent.move(qr.topLeft())
-
     # Init server list
     def init_server_list(self):
         self.logger.info('Initialize server list')
@@ -170,7 +158,7 @@ class InitUI:
         # Load server list
         try:
             server_structure = []
-            with open('server_list.json', 'r') as f:
+            with open('Resource/Server/server_list.json', 'r') as f:
                 import json
                 data = json.load(f)
                 server_list = data['server_list']
@@ -202,12 +190,17 @@ class InitUI:
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
 
-    def init_logger(self):
-        import logging.handlers
-        self.logger = logging.getLogger('ping_test_logger')
-        self.logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler = logging.handlers.RotatingFileHandler('ping_test.log', maxBytes=1048576, backupCount=5)
-        handler.setFormatter(formatter)
-        self.logger.addHandler(handler)
-        self.logger.info('Start Ping Test app')
+    # Init widget
+    def init_widget(self):
+        self.logger.info('Initialize widget')
+
+        self.main_widget = QWidget()
+        self.main_widget.setLayout(self.main_layout)
+        self.parent.setCentralWidget(self.main_widget)
+
+    # Center Window
+    def move_center(self):
+        qr = self.parent.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.parent.move(qr.topLeft())

@@ -26,13 +26,16 @@ class PingThread(QThread):
             ping_response = subprocess.Popen("ping -n 5 -w 1000 " + str(ip), stdout=subprocess.PIPE, shell=True)
             stdout, stderr = ping_response.communicate()
             stdout = stdout.decode("cp949").split('\n')
-            packet = stdout[-4].replace(" ", "")
-            ping_time = stdout[-2].replace(" ", "")
-            loss = re.findall(r"\d{1}%", packet)[0]
-            result = re.findall(r"\d{1,3}ms", ping_time)
 
-            if len(result) != 3:
+            if len(stdout) == 11:
                 result = ["Fail", "Fail", "Fail"]
+                packet = stdout[-2].replace(" ", "")
+                loss = re.findall(r"\d{1,3}%", packet)[0]
+            else:
+                packet = stdout[-4].replace(" ", "")
+                loss = re.findall(r"\d{1,3}%", packet)[0]
+                ping_time = stdout[-2].replace(" ", "")
+                result = re.findall(r"\d{1,3}ms", ping_time)
 
             self.logger.info('Ping result: %s(%s) %s', self.name, self.ip, result)
             self.progress.emit(self.currentRow, loss, result)

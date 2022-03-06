@@ -1,21 +1,43 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.3.1-green)
-![Update](https://img.shields.io/badge/Update-2022.03.04-blue)
+![Version](https://img.shields.io/badge/Version-1.4.0-green)
+![Update](https://img.shields.io/badge/Update-2022.03.06-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
+![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
 * Ping test utility GUI
-* Make with 'PyQt5' GUI library
-  <br><br>
-  <img src="./resource/img/demo.gif" alt="">
-  <br><br>
+* Make with
+    * [PyQt5](https://github.com/PyQt5) GUI library
+    * [qtmodern](https://github.com/gmarull/qtmodern) theme
+
+<br>
+<img src="./Resource/img/demo.gif" alt="">
+<br><br>
 
 ## 0. Change Log
 
-### version 1.3.1 (2022.03.04)
+### version 1.4.0 (2022.03.06)
 
 * Commit history
-    * [pepsi-hotfix-001] edited QApplication attribute to enable high DPI
+    * [pepsi-071] changed build script
+    * [pepsi-070] changed logging format
+    * [pepsi-069] changed init_ui method order
+    * [pepsi-068] edited parsing ping time, loss
+    * [pepsi-067] fixed the problem that the process does not proceed when there is no ping response
+    * [pepsi-066] changed applying qtmodern theme order for applying stylesheet
+    * [pepsi-065] removed QGroupBox title
+    * [pepsi-064] moved logger init method to main
+    * [pepsi-063] changed resource reference
+    * [pepsi-062] moved server_lists to Resource\Server folder
+    * [pepsi-061] changed module reference
+    * [pepsi-060] added ignore folder
+    * module categorize
+        * [pepsi-059] module categorize (UI)
+        * [pepsi-059] module categorize (Thread)
+        * [pepsi-058] module categorize (Result Analyze)
+        * [pepsi-057] module categorize (UI Event Handler)
+    * [pepsi-056] changed folder name to Resource
+    * [pepsi-055] deleted test file ([TEMP] Ping Test.py)
 
 <br>
 
@@ -29,7 +51,7 @@
 
 2. Build Main.py using build.bat or just run.
     1. When build is finish, you can run the PingPong.exe in the dist folder.
-    2. server_list.json file at top-level folder is automatically copy to dist folder.
+    2. server_list.json file at Resource\Server folder is automatically copy to dist\Resource\Server folder.
        <br>
        <img src="./resource/img/program_when_build_finished.PNG" alt="">
 3. Or downaload the lastest binary file what name "PingPong.zip"
@@ -38,7 +60,7 @@
 ### 1-2. How to use
 
 * Edit server list
-    1. Open the server_list.json file.
+    1. Open the server_list.json file at Resource\Server.
     2. Enter the list of servers you want to ping according to the server list format.
     3. Save the file.
 
@@ -92,5 +114,5 @@
 ### 2-1. Analyze
 
 * Analyze of ping result is shown in log.
+    * Log file is generated at Logs\ping_test_${datetime}.log
     * One for server, one for region.
-    * Next update will be separate the result analyzed data to other window tap.
