@@ -2,9 +2,9 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGridLayout, QGroupBox, QPushButton, QTableWidget, QWidget, QDesktopWidget, QMessageBox, \
     QHBoxLayout, QCheckBox, QTableWidgetItem, QProgressBar, QComboBox
 
-from ButtonHandler import ButtonHandler
-from ComboBoxHandler import ComboBoxHandler
-from ServerAnalyze import ServerAnalyze
+from Modules.Analyze.ServerAnalyze import ServerAnalyze
+from Modules.Handler.ButtonHandler import ButtonHandler
+from Modules.Handler.ComboBoxHandler import ComboBoxHandler
 
 
 class InitUI:
@@ -170,7 +170,7 @@ class InitUI:
         # Load server list
         try:
             server_structure = []
-            with open('server_list.json', 'r') as f:
+            with open('Resource/Server/server_list.json', 'r') as f:
                 import json
                 data = json.load(f)
                 server_list = data['server_list']
@@ -204,10 +204,12 @@ class InitUI:
 
     def init_logger(self):
         import logging.handlers
+        import os
+        os.makedirs('Logs', exist_ok=True)
         self.logger = logging.getLogger('ping_test_logger')
         self.logger.setLevel(logging.DEBUG)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler = logging.handlers.RotatingFileHandler('ping_test.log', maxBytes=1048576, backupCount=5)
+        handler = logging.handlers.RotatingFileHandler('Logs/ping_test.log', maxBytes=1048576, backupCount=5)
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
         self.logger.info('Start Ping Test app')
