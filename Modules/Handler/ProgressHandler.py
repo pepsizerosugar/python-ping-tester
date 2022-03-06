@@ -24,7 +24,7 @@ class ProgressHandler(QObject):
         server = self.parent.server_list_table.item(currentRow, 1).text()
         region = self.parent.server_list_table.item(currentRow, 2).text()
         ip = self.parent.server_list_table.item(currentRow, 3).text()
-        loss = int(re.findall(r'\d', loss)[0])
+        loss = int(loss[0:loss.find('%')])
         self.ping_result_model.append(
             {
                 'row': currentRow,
@@ -65,8 +65,7 @@ class ProgressHandler(QObject):
                 self.parent.server_list_table.item(currentRow, i + 4).setText(value)
                 self.parent.server_list_table.item(currentRow, i + 4).setForeground(QBrush(QColor(255, 0, 0)))
             else:
-
-                int_value = int(re.findall(r'\d{1,3}', value)[0])
+                int_value = int(value[0:value.find('ms')])
                 cell_item = QTableWidgetItem()
                 cell_item.setData(Qt.DisplayRole, int_value)
                 self.parent.server_list_table.setItem(currentRow, i + 4, cell_item)
