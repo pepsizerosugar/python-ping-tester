@@ -20,8 +20,7 @@ class MainClass(QMainWindow):
     # Init UI
     def init_ui(self):
         self.init_logger()
-        pointer = InitUI(self)
-        pointer.init_layout()
+        InitUI(self).init_layout()
 
     def init_logger(self):
         import logging.handlers
@@ -47,12 +46,11 @@ if __name__ == '__main__':
 
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(os.path.join(basedir, 'Resource/img/icon.ico')))
+    qtmodern.styles.dark(app)
 
     window = MainClass()
     window.setWindowTitle("Ping Pong")
 
-    # Set Dark Theme
-    qtmodern.styles.dark(app)
     mw = qtmodern.windows.ModernWindow(window)
     mw.setFixedSize(670, 550)
     mw.show()
