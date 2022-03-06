@@ -53,7 +53,7 @@
     1. When build is finish, you can run the PingPong.exe in the dist folder.
     2. server_list.json file at Resource\Server folder is automatically copy to dist\Resource\Server folder.
        <br>
-       <img src="./resource/img/program_when_build_finished.PNG" alt="">
+       <img src="./Resource/img/program_when_build_finished.PNG" alt="">
 3. Or downaload the lastest binary file what name "PingPong.zip"
    from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) and unzip it.
 
@@ -107,7 +107,7 @@
 * When you click the Ping button, the ping result will be shown in the list.
 * The ping result will automatically sort by avg ping time.
 * And the best ping time result will be shown in the messagebox when all ping finished.
-    * <img src="./resource/img/messagebox_when_ping_finished.PNG" alt="">
+    * <img src="./Resource/img/messagebox_when_ping_finished.PNG" alt="">
 
 ## 2. Extra
 
