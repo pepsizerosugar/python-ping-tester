@@ -10,11 +10,10 @@ from Modules.Handler.ComboBoxHandler import ComboBoxHandler
 class InitUI:
     def __init__(self, parent):
         super().__init__()
-        self.logger = None
+        self.logger = parent.logger
         self.parent = parent
         self.server_analyzer = None
 
-        self.init_logger()
         self.logger.info('Initialize UI')
 
         self.main_layout = QGridLayout()
@@ -201,15 +200,3 @@ class InitUI:
         self.server_list_table.setItem(row, 1, QTableWidgetItem(server['server']))
         self.server_list_table.setItem(row, 2, QTableWidgetItem(server['region']))
         self.server_list_table.setItem(row, 3, QTableWidgetItem(server['ip']))
-
-    def init_logger(self):
-        import logging.handlers
-        import os
-        os.makedirs('Logs', exist_ok=True)
-        self.logger = logging.getLogger('ping_test_logger')
-        self.logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler = logging.handlers.RotatingFileHandler('Logs/ping_test.log', maxBytes=1048576, backupCount=5)
-        handler.setFormatter(formatter)
-        self.logger.addHandler(handler)
-        self.logger.info('Start Ping Test app')
