@@ -7,9 +7,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
-from InitializeUI import InitUI
-
-basedir = os.path.dirname(__file__)
+from Modules.Interface.InitializeUI import InitUI
 
 
 # Main Class
@@ -29,8 +27,11 @@ class MainClass(QMainWindow):
 # Main
 if __name__ == '__main__':
     QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
+    basedir = os.path.dirname(__file__)
+
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon(os.path.join(basedir, 'resource/img/icon.ico')))
+    app.setWindowIcon(QIcon(os.path.join(basedir, 'Resource/img/icon.ico')))
+
     window = MainClass()
 
     # Set Dark Theme
