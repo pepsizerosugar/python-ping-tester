@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/badge/Version-1.4.0-green)
 ![Update](https://img.shields.io/badge/Update-2022.03.06-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
+![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
 * Ping test utility GUI
 * Make with
@@ -10,7 +11,7 @@
     * [qtmodern](https://github.com/gmarull/qtmodern) theme
 
 <br>
-<img src="./resource/img/demo.gif" alt="">
+<img src="./Resource/img/demo.gif" alt="">
 <br><br>
 
 ## 0. Change Log
