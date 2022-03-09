@@ -2,8 +2,8 @@ from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 
 from Modules.Handler.ProgressHandler import ProgressHandler
-from Modules.Interface.DataObject.EventElements import EventElements
-from Modules.Interface.DataObject.UIElement import UIElements
+from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.UIElement import UIElements
 from Modules.Thread.PingThread import PingThread
 
 

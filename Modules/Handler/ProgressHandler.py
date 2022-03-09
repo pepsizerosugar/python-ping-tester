@@ -3,8 +3,8 @@ from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
 from Modules.Analyze.ResultAnalyze import ResultAnalyze
-from Modules.Interface.DataObject.EventElements import EventElements
-from Modules.Interface.DataObject.UIElement import UIElements
+from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.UIElement import UIElements
 
 
 class ProgressHandler(QObject):

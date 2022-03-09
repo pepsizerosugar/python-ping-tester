@@ -3,9 +3,9 @@ from PyQt5.QtWidgets import QGroupBox, QGridLayout, QComboBox, QPushButton, QMes
 from Modules.Analyze.ServerAnalyze import ServerAnalyze
 from Modules.Handler.ButtonHandler import ButtonHandler
 from Modules.Handler.ComboBoxHandler import ComboBoxHandler
-from Modules.Interface.DataObject.EventElements import EventElements
-from Modules.Interface.DataObject.ServerData import Server
-from Modules.Interface.DataObject.UIElement import UIElements
+from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.ServerData import Server
+from Modules.Interface.DataClass.UIElement import UIElements
 
 
 class InitInteractionGroup:

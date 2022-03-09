@@ -7,7 +7,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
-from Modules.Interface.DataObject.EventElements import EventElements
+from Modules.Interface.DataClass.EventElements import EventElements
 from Modules.Interface.InitializeUI import InitUI
 
 

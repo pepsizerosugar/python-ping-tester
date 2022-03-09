@@ -1,5 +1,5 @@
-from Modules.Analyze.DataObject.AnalyzeData import AnalyzeData
-from Modules.Interface.DataObject.EventElements import EventElements
+from Modules.Analyze.DataClass.AnalyzeData import AnalyzeData
+from Modules.Interface.DataClass.EventElements import EventElements
 
 
 class ResultAnalyze:

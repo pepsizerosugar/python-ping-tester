@@ -1,8 +1,8 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGroupBox, QTableWidget, QGridLayout, QWidget, QHBoxLayout, QCheckBox, QTableWidgetItem
 
-from Modules.Interface.DataObject.EventElements import EventElements
-from Modules.Interface.DataObject.UIElement import UIElements
+from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.UIElement import UIElements
 
 
 class InitServerListGroup:
@@ -41,7 +41,7 @@ class InitServerListGroup:
         UIElements.server_list_group_box.layout().addWidget(UIElements.server_list_table, 0, 0)
 
         # Set server list table
-        from Modules.Interface.DataObject.ServerData import Server
+        from Modules.Interface.DataClass.ServerData import Server
         UIElements.server_list_table.setRowCount(len(Server.server_list))
         self.logger.info('Initialize server list table')
         for i, server in enumerate(Server.server_list):
