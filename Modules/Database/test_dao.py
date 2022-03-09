@@ -23,7 +23,9 @@ class TestDAO(unittest.TestCase):
     def test_insert_data(self):
         values = (self.server, self.region, self.ip)
         self.dao.create_table("test_insert_data")
+        print(self.dao.select_data("test_insert_data"))
         if self.dao.insert_data("test_insert_data", values):
+            print(self.dao.select_data("test_insert_data"))
             self.assertTrue(self.dao.select_data("test_insert_data"), [(self.server, self.region, self.ip)])
         else:
             self.assertFalse(self)
@@ -31,7 +33,9 @@ class TestDAO(unittest.TestCase):
     def test_select_data(self):
         values = (self.server, self.region, self.ip)
         self.dao.create_table("test_select_data")
+        print(self.dao.select_data("test_select_data"))
         if self.dao.insert_data("test_select_data", values):
+            print(self.dao.select_data("test_select_data"))
             self.assertEqual(self.dao.select_data("test_select_data"), [(self.server, self.region, self.ip)])
         else:
             self.assertFalse(self)

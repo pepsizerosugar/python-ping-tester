@@ -1,5 +1,12 @@
 import sqlite3
 
+from Modules.Database.DataClass.transfer import Transfer
+
+
+# Assign data to transfer class
+def assign_data(data):
+    Transfer.server_list = data
+
 
 class dao:
     def __init__(self, dbname):
@@ -38,28 +45,32 @@ class dao:
     def select_data(self, table_name):
         try:
             self.execute(f"SELECT * FROM {table_name}")
-            return self.cursor.fetchall()
+            assign_data(self.cursor.fetchall())
+            return Transfer.server_list
         except sqlite3.OperationalError:
             return False
 
     def select_data_by_server_name(self, table_name, server_name):
         try:
             self.execute(f"SELECT * FROM {table_name} WHERE server_name = '{server_name}'")
-            return self.cursor.fetchall()
+            assign_data(self.cursor.fetchall())
+            return Transfer.server_list
         except sqlite3.OperationalError:
             return False
 
     def select_data_by_server_region(self, table_name, server_region):
         try:
             self.execute(f"SELECT * FROM {table_name} WHERE server_region = '{server_region}'")
-            return self.cursor.fetchall()
+            assign_data(self.cursor.fetchall())
+            return Transfer.server_list
         except sqlite3.OperationalError:
             return False
 
     def select_data_by_server_ip(self, table_name, server_ip):
         try:
             self.execute(f"SELECT * FROM {table_name} WHERE server_ip = '{server_ip}'")
-            return self.cursor.fetchall()
+            assign_data(self.cursor.fetchall())
+            return Transfer.server_list
         except sqlite3.OperationalError:
             return False
 
