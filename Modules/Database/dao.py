@@ -65,15 +65,27 @@ class dao:
 
     # Update data
     def update_data(self, table_name, values):
+        """
+        Update data in table
+        :param table_name: table name
+        :param values: values to update (values[0] = column name, values[1] = existing value, values[2] = new value)
+        :return: True if success, False if not
+        """
         try:
             self.execute(
-                f"UPDATE {table_name} SET {values[0]} = {values[1]} WHERE {values[0]} = {values[3]}")
+                f"UPDATE {table_name} SET {values[0]} = {values[1]} WHERE {values[0]} = {values[2]}")
             return True
         except sqlite3.OperationalError:
             return False
 
     # Delete data
     def delete_data(self, table_name, values):
+        """
+        Delete data from table
+        :param table_name: table name
+        :param values: values to delete (values[0] = column name, values[1] = value to delete)
+        :return: True if success, False if not
+        """
         try:
             self.execute(
                 f"DELETE FROM {table_name} WHERE {values[0]} = {values[1]}")
@@ -83,6 +95,11 @@ class dao:
 
     # Delete table
     def delete_table(self, table_name):
+        """
+        Delete table
+        :param table_name: table name
+        :return: True if success, False if not
+        """
         try:
             self.execute(f"DROP TABLE {table_name}")
             return True
@@ -91,6 +108,11 @@ class dao:
 
     # Delete all data
     def delete_all_data(self, table_name):
+        """
+        Delete all data from table
+        :param table_name: table name
+        :return: True if success, False if not
+        """
         try:
             self.execute(f"DELETE FROM {table_name}")
             return True
@@ -99,6 +121,10 @@ class dao:
 
     # Delete all tables
     def delete_all_tables(self):
+        """
+        Delete all tables
+        :return: True if success, False if not
+        """
         try:
             self.execute(f"SELECT name FROM sqlite_master WHERE type='table'")
             tables = self.cursor.fetchall()
@@ -110,8 +136,15 @@ class dao:
 
     # Delete all data and tables
     def delete_all(self, table_name):
-        self.delete_all_data(table_name)
-        self.delete_all_tables()
+        """
+        Delete all data and tables
+        :param table_name: table name
+        :return: True if success, False if not
+        """
+        if self.delete_all_data(table_name) & self.delete_all_tables():
+            return True
+        else:
+            return False
 
     # execute sql
     def execute(self, sql):
