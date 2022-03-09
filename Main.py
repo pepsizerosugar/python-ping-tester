@@ -7,6 +7,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
+from Modules.Interface.DataObject.EventElements import EventElements
 from Modules.Interface.InitializeUI import InitUI
 
 
@@ -14,35 +15,35 @@ from Modules.Interface.InitializeUI import InitUI
 class MainClass(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.logger = None
         self.init_ui()
 
     # Init UI
     def init_ui(self):
-        self.init_logger()
+        init_logger()
         InitUI(self).init_layout()
 
-    def init_logger(self):
-        import logging.handlers
-        import os
-        import datetime
 
-        os.makedirs('Logs', exist_ok=True)
-        datetime_str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+def init_logger():
+    import logging.handlers
+    import os
+    import datetime
 
-        self.logger = logging.getLogger('ping_test_logger')
-        self.logger.setLevel(logging.DEBUG)
+    os.makedirs('Logs', exist_ok=True)
+    datetime_str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    EventElements.logger = logging.getLogger('ping_test_logger')
+    EventElements.logger.setLevel(logging.DEBUG)
 
-        handler = logging.handlers.RotatingFileHandler(
-            os.path.join('Logs', 'ping_test_log_' + datetime_str + '.log'),
-            maxBytes=1048576,
-            backupCount=5
-        )
-        handler.setFormatter(formatter)
-        self.logger.addHandler(handler)
-        self.logger.info('Start Ping Pong app')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    handler = logging.handlers.RotatingFileHandler(
+        os.path.join('Logs', 'ping_test_log_' + datetime_str + '.log'),
+        maxBytes=1048576,
+        backupCount=5
+    )
+    handler.setFormatter(formatter)
+    EventElements.logger.addHandler(handler)
+    EventElements.logger.info('Start Ping Pong app')
 
 
 # Main
