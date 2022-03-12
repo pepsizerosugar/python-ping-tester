@@ -2,8 +2,8 @@ from PyQt5.QtWidgets import QGridLayout, QWidget, QDesktopWidget, QProgressBar
 
 from Modules.Interface.DataClass.EventElements import EventElements
 from Modules.Interface.DataClass.UIElement import UIElements
-from Modules.Interface.Group.InitInteractionGroup import InitInteractionGroup
-from Modules.Interface.Group.InitServerListGroup import InitServerListGroup
+from Modules.Interface.GroupBox.InitInteractionGroup import InitInteractionGroup
+from Modules.Interface.GroupBox.InitServerListGroup import InitServerListGroup
 
 
 class InitUI:

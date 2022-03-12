@@ -14,7 +14,7 @@ class InitServerListGroup:
 
     # Init server list group box
     def init_server_list_groupbox(self):
-        self.logger.info('Initialize Server List Group Box')
+        self.logger.info('Initialize Server List GroupBox Box')
 
         UIElements.server_list_group_box = QGroupBox()
         UIElements.server_list_group_box.setLayout(QGridLayout())

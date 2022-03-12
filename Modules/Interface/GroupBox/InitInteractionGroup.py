@@ -21,7 +21,7 @@ class InitInteractionGroup:
 
     # Init ping button group box
     def init_interaction_groupbox(self):
-        self.logger.info('Initialize Ping Button Group Box')
+        self.logger.info('Initialize Ping Button GroupBox Box')
 
         UIElements.ping_btn_group_box = QGroupBox()
         UIElements.ping_btn_group_box.setLayout(QGridLayout())
