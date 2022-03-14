@@ -3,9 +3,8 @@ from Modules.Interface.DataClass.EventElements import EventElements
 
 
 class ResultAnalyze:
-    def __init__(self, parent, ping_result):
+    def __init__(self, ping_result):
         super().__init__()
-        self.parent = parent
         self.logger = EventElements.logger
         self.ping_result = ping_result
 

@@ -3,9 +3,8 @@ from Modules.Interface.DataClass.ServerData import Server
 
 
 class ServerAnalyze:
-    def __init__(self, parent):
+    def __init__(self):
         super().__init__()
-        self.parent = parent
         self.logger = EventElements.logger
         self.servers = []
         self.regions = []

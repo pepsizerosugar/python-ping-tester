@@ -7,10 +7,9 @@ from Modules.Interface.GroupBox.InitServerListGroup import InitServerListGroup
 
 
 class InitUI:
-    def __init__(self, parent):
+    def __init__(self):
         super().__init__()
         self.logger = EventElements.logger
-        self.parent = parent
         self.server_analyzer = None
 
         self.logger.info('Initialize UI')
@@ -19,9 +18,6 @@ class InitUI:
         self.main_widget = None
 
         UIElements.progress_bar = QProgressBar()
-
-        # for ProgressHandler
-        self.checked_server_list = []
 
     # Init layout
     def init_layout(self):
@@ -44,9 +40,10 @@ class InitUI:
         self.logger.info('Initialize UI finished')
 
     # Init group box
-    def init_group_box(self):
-        InitInteractionGroup(self)
-        InitServerListGroup(self)
+    @staticmethod
+    def init_group_box():
+        InitInteractionGroup()
+        InitServerListGroup()
 
     # Init widget
     def init_widget(self):
@@ -54,11 +51,12 @@ class InitUI:
 
         self.main_widget = QWidget()
         self.main_widget.setLayout(self.main_layout)
-        self.parent.setCentralWidget(self.main_widget)
+        UIElements.main_window.setCentralWidget(self.main_widget)
 
     # Center Window
-    def move_center(self):
-        qr = self.parent.frameGeometry()
+    @staticmethod
+    def move_center():
+        qr = UIElements.main_window.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
-        self.parent.move(qr.topLeft())
+        UIElements.main_window.move(qr.topLeft())

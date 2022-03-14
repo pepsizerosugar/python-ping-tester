@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 
 from Modules.Handler.ProgressHandler import ProgressHandler
 from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.ServerData import Server
 from Modules.Interface.DataClass.UIElement import UIElements
 from Modules.Thread.PingThread import PingThread
 
@@ -45,7 +46,7 @@ class ButtonHandler:
         UIElements.progress_bar.setRange(0, 0)
         self.disable_interaction()
 
-        self.parent.checked_server_list = []
+        Server.checked_server_list = []
 
         # Create checked server list
         for row in range(UIElements.server_list_table.rowCount()):
@@ -53,8 +54,8 @@ class ButtonHandler:
             if check_box_widget.children()[1].isChecked():
                 server_name = UIElements.server_list_table.item(row, 1).text()
                 server_ip = UIElements.server_list_table.item(row, 3).text()
-                ping_thread = PingThread(self.parent, row, server_name, server_ip)
-                self.parent.checked_server_list.append([ping_thread, row])
+                ping_thread = PingThread(row, server_name, server_ip)
+                Server.checked_server_list.append([ping_thread, row])
 
                 # Change result table cell to 'Pinging...'
                 for j in range(4, 8):
@@ -63,12 +64,12 @@ class ButtonHandler:
                 UIElements.server_list_table.repaint()
 
         # Start ping thread
-        if len(self.parent.checked_server_list) > 0:
-            for thread in self.parent.checked_server_list:
+        if len(Server.checked_server_list) > 0:
+            for thread in Server.checked_server_list:
                 thread[0].progress.connect(self.progress_handler.handle_progress)
                 thread[0].start()
         else:
-            QMessageBox.warning(self.parent.parent.parent, 'Warn', 'Please select server to ping.')
+            QMessageBox.warning(UIElements.main_window, 'Warn', 'Please select server to ping.')
             UIElements.progress_bar.setRange(0, 1)
             self.enable_interaction()
 

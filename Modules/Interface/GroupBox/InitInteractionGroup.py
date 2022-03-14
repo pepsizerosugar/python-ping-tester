@@ -9,8 +9,7 @@ from Modules.Interface.DataClass.UIElement import UIElements
 
 
 class InitInteractionGroup:
-    def __init__(self, parent):
-        self.parent = parent
+    def __init__(self):
         self.logger = EventElements.logger
 
         self.button_handler = ButtonHandler(self)
@@ -59,7 +58,7 @@ class InitInteractionGroup:
 
         # Init server list
         self.init_server_list()
-        ServerAnalyze(self).collect_by_server()
+        ServerAnalyze().collect_by_server()
 
         UIElements.ping_btn_group_box.layout().addWidget(UIElements.type_combo_box, 0, 0)
         UIElements.ping_btn_group_box.layout().addWidget(UIElements.select_combo_box, 0, 1)
@@ -86,5 +85,5 @@ class InitInteractionGroup:
         except FileNotFoundError:
             Server.server_list = []
             self.logger.error('Server list file not found')
-            QMessageBox.warning(self.parent.parent, 'Error', 'Server list file not found')
+            QMessageBox.warning(UIElements.main_window, 'Error', 'Server list file not found')
         return Server.server_list

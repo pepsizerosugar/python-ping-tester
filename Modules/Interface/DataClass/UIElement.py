@@ -1,7 +1,10 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class UIElements:
+    main_window: None
+
     progress_bar: None
 
     ping_btn_group_box: None

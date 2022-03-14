@@ -3,6 +3,7 @@
 /build/
 /dist/
 /Logs/
+/venv/
 
 PingPong.spec
 /Modules/Database/test_database

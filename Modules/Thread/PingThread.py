@@ -6,9 +6,8 @@ from Modules.Interface.DataClass.EventElements import EventElements
 class PingThread(QThread):
     progress = pyqtSignal(int, str, list)
 
-    def __init__(self, parent, currentRow, name, ip):
+    def __init__(self, currentRow, name, ip):
         QThread.__init__(self)
-        self.parent = parent
         self.currentRow = currentRow
         self.name = name
         self.ip = ip

@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
 from Modules.Analyze.ResultAnalyze import ResultAnalyze
 from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.ServerData import Server
 from Modules.Interface.DataClass.UIElement import UIElements
 
 
@@ -19,7 +20,7 @@ class ProgressHandler(QObject):
     @pyqtSlot(int, str, list)
     def handle_progress(self, currentRow, loss, result):
         self.count += 1
-        UIElements.progress_bar.setRange(0, len(self.parent.checked_server_list))
+        UIElements.progress_bar.setRange(0, len(Server.checked_server_list))
         UIElements.progress_bar.setValue(self.count)
         server = UIElements.server_list_table.item(currentRow, 1).text()
         region = UIElements.server_list_table.item(currentRow, 2).text()
@@ -40,15 +41,15 @@ class ProgressHandler(QObject):
         self.set_ping_loss(currentRow, loss)
 
         # Check ping thread is finished
-        if self.count == len(self.parent.checked_server_list):
+        if self.count == len(Server.checked_server_list):
             self.logger.info('Ping finished')
             UIElements.server_list_table.sortByColumn(6, Qt.AscendingOrder)
-            ResultAnalyze(self.parent, self.ping_result_model).convert_result_table_to_model()
+            ResultAnalyze(self.ping_result_model).convert_result_table_to_model()
 
             best_server = UIElements.server_list_table.item(0, 1).text()
             best_server_ip = UIElements.server_list_table.item(0, 3).text()
             best_server_ping = UIElements.server_list_table.item(0, 6).text()
-            QMessageBox.information(self.parent.parent.parent, 'Pong',
+            QMessageBox.information(UIElements.main_window, 'Pong',
                                     'Ping finished\n'
                                     'Best server : ' + best_server + '(' + best_server_ip + ') with ping ' + best_server_ping)
             self.ping_result_model = []

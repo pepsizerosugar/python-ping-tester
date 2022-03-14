@@ -6,8 +6,7 @@ from Modules.Interface.DataClass.UIElement import UIElements
 
 
 class InitServerListGroup:
-    def __init__(self, parent):
-        self.parent = parent
+    def __init__(self):
         self.logger = EventElements.logger
 
         self.init_server_list_groupbox()
