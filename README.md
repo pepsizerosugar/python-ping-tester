@@ -1,7 +1,7 @@
 # python-ping-tester
 
 ![Version](https://img.shields.io/badge/Version-1.5.0-green)
-![Update](https://img.shields.io/badge/Update-2022.03.**-blue)
+![Update](https://img.shields.io/badge/Update-2022.03.15-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 ![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
@@ -16,10 +16,17 @@
 
 ## 0. Change Log
 
-### version 1.5.0 (2022.03.**)
+### version 1.5.0 (2022.03.15)
 
 * Commit history
-    *
+    * Change field ui elements to dataclass
+        * [pepsi-086] removed unused parent, changed QMessageBox object parameter
+        * [pepsi-085] changed folder name Group to GroupBox
+        * [pepsi-079] changed folder name DataObject to DataClass
+        * [pepsi-078] separated init group box method to each class
+        * [pepsi-077] changed class variable to data object
+    * [pepsi-076] changed img folder name to Img
+    * [pepsi-075] updated README.md
 
 <br>
 
