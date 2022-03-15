@@ -4,6 +4,7 @@
 /dist/
 /Logs/
 /venv/
+/Modules/Database/test_database
+/Test/
 
 PingPong.spec
-/Modules/Database/test_database
