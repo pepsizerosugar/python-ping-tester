@@ -1,19 +1,22 @@
 from PyQt5.QtCore import QThread, pyqtSignal
 
+from Modules.Interface.DataClass.EventElements import EventElements
+
 
 class PingThread(QThread):
     progress = pyqtSignal(int, str, list)
 
-    def __init__(self, parent, currentRow, name, ip):
+    def __init__(self, currentRow, name, ip):
         QThread.__init__(self)
-        self.parent = parent
         self.currentRow = currentRow
         self.name = name
         self.ip = ip
-        self.logger = self.parent.logger
+        self.logger = EventElements.logger
+
+    def __del__(self):
+        self.logger.info('PingThread: %s(%s) is terminated', self.name, self.ip)
 
     def run(self):
-        self.msleep(50)
         self.ping(self.ip)
 
     def ping(self, ip):
@@ -45,3 +48,4 @@ class PingThread(QThread):
             return
 
         self.quit()
+        del self

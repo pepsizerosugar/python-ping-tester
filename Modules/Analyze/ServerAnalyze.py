@@ -1,13 +1,16 @@
+from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface.DataClass.ServerData import Server
+
+
 class ServerAnalyze:
-    def __init__(self, parent):
+    def __init__(self):
         super().__init__()
-        self.parent = parent
-        self.logger = self.parent.logger
+        self.logger = EventElements.logger
         self.servers = []
         self.regions = []
 
     def collect_by_server(self):
-        for server in self.parent.server_list:
+        for server in Server.server_list:
             server_name = server['server']
             server_region = server['region']
 
@@ -15,6 +18,7 @@ class ServerAnalyze:
                 self.servers.append(server_name)
             if server_region not in self.regions:
                 self.regions.append(server_region)
+        Server.collection = {"Server": self.servers, "Region": self.regions}
 
     def get_server_collection(self):
         return {"Server": self.servers, "Region": self.regions}

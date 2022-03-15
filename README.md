@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.4.0-green)
-![Update](https://img.shields.io/badge/Update-2022.03.06-blue)
+![Version](https://img.shields.io/badge/Version-1.5.0-green)
+![Update](https://img.shields.io/badge/Update-2022.03.15-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 ![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
@@ -16,28 +16,17 @@
 
 ## 0. Change Log
 
-### version 1.4.0 (2022.03.06)
+### version 1.5.0 (2022.03.15)
 
 * Commit history
-    * [pepsi-071] changed build script
-    * [pepsi-070] changed logging format
-    * [pepsi-069] changed init_ui method order
-    * [pepsi-068] edited parsing ping time, loss
-    * [pepsi-067] fixed the problem that the process does not proceed when there is no ping response
-    * [pepsi-066] changed applying qtmodern theme order for applying stylesheet
-    * [pepsi-065] removed QGroupBox title
-    * [pepsi-064] moved logger init method to main
-    * [pepsi-063] changed resource reference
-    * [pepsi-062] moved server_lists to Resource\Server folder
-    * [pepsi-061] changed module reference
-    * [pepsi-060] added ignore folder
-    * module categorize
-        * [pepsi-059] module categorize (UI)
-        * [pepsi-059] module categorize (Thread)
-        * [pepsi-058] module categorize (Result Analyze)
-        * [pepsi-057] module categorize (UI Event Handler)
-    * [pepsi-056] changed folder name to Resource
-    * [pepsi-055] deleted test file ([TEMP] Ping Test.py)
+    * Change field ui elements to dataclass
+        * [pepsi-086] removed unused parent, changed QMessageBox object parameter
+        * [pepsi-085] changed folder name Group to GroupBox
+        * [pepsi-079] changed folder name DataObject to DataClass
+        * [pepsi-078] separated init group box method to each class
+        * [pepsi-077] changed class variable to data object
+    * [pepsi-076] changed img folder name to Img
+    * [pepsi-075] updated README.md
 
 <br>
 
@@ -116,3 +105,12 @@
 * Analyze of ping result is shown in log.
     * Log file is generated at Logs\ping_test_${datetime}.log
     * One for server, one for region.
+
+### 2-2. Reference
+
+* PyQt5 Tutorial Doc (Korean): https://wikidocs.net/book/2165
+* Qt API Doc (English): https://doc.qt.io/
+* Qt 5 for Python Doc (English): https://doc.qt.io/qtforpython-5/
+* PyQt5 Official Doc (English): https://www.riverbankcomputing.com/static/Docs/PyQt5/
+* PyInstaller Doc (English): https://pyinstaller.readthedocs.io/en/stable/usage.html
+* Python Official Doc (English): https://docs.python.org/3.9/

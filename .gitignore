@@ -3,5 +3,6 @@
 /build/
 /dist/
 /Logs/
+/venv/
 
 PingPong.spec
