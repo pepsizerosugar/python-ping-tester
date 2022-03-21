@@ -13,9 +13,6 @@ class PingThread(QThread):
         self.ip = ip
         self.logger = EventElements.logger
 
-    def __del__(self):
-        self.logger.info('PingThread: %s(%s) is terminated', self.name, self.ip)
-
     def run(self):
         self.ping(self.ip)
 
@@ -48,4 +45,3 @@ class PingThread(QThread):
             return
 
         self.quit()
-        del self
