@@ -17,11 +17,6 @@ class MainClass(QMainWindow):
     def __init__(self):
         super().__init__()
         UIElements.main_window = self
-        self.init_ui()
-
-    # Init UI
-    @staticmethod
-    def init_ui():
         Logger().__init__()
         InitUI().init_layout()
 
