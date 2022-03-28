@@ -1,6 +1,6 @@
 from PyQt5.QtCore import pyqtSlot, Qt, QObject
 from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
+from PyQt5.QtWidgets import QTableWidgetItem
 
 from Modules.Analyze.ResultAnalyze import ResultAnalyze
 from Modules.Interface.DataClass.EventElements import EventElements
@@ -49,9 +49,10 @@ class ProgressHandler(QObject):
             best_server = UIElements.server_list_table.item(0, 1).text()
             best_server_ip = UIElements.server_list_table.item(0, 3).text()
             best_server_ping = UIElements.server_list_table.item(0, 6).text()
-            QMessageBox.information(UIElements.main_window, 'Pong',
-                                    'Ping finished\n'
-                                    'Best server : ' + best_server + '(' + best_server_ip + ') with ping ' + best_server_ping)
+
+            from Modules.Interface.Dialog import Dialogs
+            Dialogs.when_ping_finished(best_server, best_server_ip, best_server_ping)
+
             self.ping_result_model = []
             UIElements.progress_bar.reset()
             self.parent.enable_buttons()

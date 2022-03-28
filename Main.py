@@ -3,13 +3,14 @@ import sys
 
 import qtmodern.styles
 import qtmodern.windows
+import Modules.Logger.Logger as Logger
+
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
 from Modules.Interface.DataClass.UIElement import UIElements
 from Modules.Interface.InitializeUI import InitUI
-from Modules.Logger.Logger import Logger
 
 
 # Main Class
@@ -17,7 +18,7 @@ class MainClass(QMainWindow):
     def __init__(self):
         super().__init__()
         UIElements.main_window = self
-        Logger().__init__()
+        Logger.init_logger()
         InitUI().init_layout()
 
 
