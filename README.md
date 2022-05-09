@@ -7,8 +7,9 @@
 
 * Ping test utility GUI
 * Make with
-    * [PyQt5](https://github.com/PyQt5) GUI library
-    * [qtmodern](https://github.com/gmarull/qtmodern) theme
+  * Python [3.9.10](https://www.python.org/downloads/release/python-3910/)
+  * [PyQt5](https://github.com/PyQt5) GUI library
+  * [qtmodern](https://github.com/gmarull/qtmodern) theme
 
 <br>
 <img src="./Resource/Img/demo.gif" alt="">
@@ -34,7 +35,7 @@
 
 ### 1-1. Installation
 
-1. Download the lastest version from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) or Clone
+1. Download the latest version from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) or Clone
    the repository.
     1. ```git clone https://github.com/pepsizerosugar/python-ping-tester.git```
 
@@ -43,7 +44,7 @@
     2. server_list.json file at Resource\Server folder is automatically copy to dist\Resource\Server folder.
        <br>
        <img src="./Resource/Img/program_when_build_finished.PNG" alt="">
-3. Or downaload the lastest binary file what name "PingPong.zip"
+3. Or downaload the latest binary file what name "PingPong.zip"
    from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) and unzip it.
 
 ### 1-2. How to use
