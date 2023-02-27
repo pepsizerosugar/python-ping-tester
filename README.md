@@ -1,12 +1,13 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.5.0-green)
-![Update](https://img.shields.io/badge/Update-2022.03.15-blue)
+![Version](https://img.shields.io/badge/Version-1.5.3-green)
+![Update](https://img.shields.io/badge/Update-2023.02.27-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 ![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
 * Ping test utility GUI
 * Make with
+    * Python [3.9.10](https://www.python.org/downloads/release/python-3910/)
     * [PyQt5](https://github.com/PyQt5) GUI library
     * [qtmodern](https://github.com/gmarull/qtmodern) theme
 
@@ -16,17 +17,17 @@
 
 ## 0. Change Log
 
-### version 1.5.0 (2022.03.15)
+### version 1.5.3 (2023.02.27)
 
 * Commit history
-    * Change field ui elements to dataclass
-        * [pepsi-086] removed unused parent, changed QMessageBox object parameter
-        * [pepsi-085] changed folder name Group to GroupBox
-        * [pepsi-079] changed folder name DataObject to DataClass
-        * [pepsi-078] separated init group box method to each class
-        * [pepsi-077] changed class variable to data object
-    * [pepsi-076] changed img folder name to Img
-    * [pepsi-075] updated README.md
+  * [pepsi-092] removed thread event loop exit log
+  * [pepsi-093] simplify main init method
+  * [pepsi-094] changed call QMessageBox to dialog class
+  * [pepsi-095] DOCS: update README.md
+* Upcoming feature (#To-do)
+  * Modifying the list of servers according to the new update of EFT.
+  * Add Ping Results Analysis tab.
+  * Modify to set ping options.
 
 <br>
 
@@ -34,7 +35,7 @@
 
 ### 1-1. Installation
 
-1. Download the lastest version from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) or Clone
+1. Download the latest version from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) or Clone
    the repository.
     1. ```git clone https://github.com/pepsizerosugar/python-ping-tester.git```
 
@@ -43,7 +44,7 @@
     2. server_list.json file at Resource\Server folder is automatically copy to dist\Resource\Server folder.
        <br>
        <img src="./Resource/Img/program_when_build_finished.PNG" alt="">
-3. Or downaload the lastest binary file what name "PingPong.zip"
+3. Or downaload the latest binary file what name "PingPong.zip"
    from [GitHub](https://github.com/pepsizerosugar/python-ping-tester/releases) and unzip it.
 
 ### 1-2. How to use
