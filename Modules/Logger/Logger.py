@@ -21,8 +21,3 @@ def init_logger():
     handler.setFormatter(formatter)
     EventElements.logger.addHandler(handler)
     EventElements.logger.info('Start Ping Pong app')
-
-
-class Logger:
-    def __init__(self):
-        init_logger()

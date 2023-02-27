@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
+from PyQt5.QtWidgets import QTableWidgetItem
 
 from Modules.Handler.ProgressHandler import ProgressHandler
 from Modules.Interface.DataClass.EventElements import EventElements
@@ -69,7 +69,8 @@ class ButtonHandler:
                 thread[0].progress.connect(self.progress_handler.handle_progress)
                 thread[0].start()
         else:
-            QMessageBox.warning(UIElements.main_window, 'Warn', 'Please select server to ping.')
+            from Modules.Interface.Dialog import Dialogs
+            Dialogs.when_checked_server_is_empty()
             UIElements.progress_bar.setRange(0, 1)
             self.enable_interaction()
 

@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QGroupBox, QGridLayout, QComboBox, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QGroupBox, QGridLayout, QComboBox, QPushButton
 
 from Modules.Analyze.ServerAnalyze import ServerAnalyze
 from Modules.Handler.ButtonHandler import ButtonHandler
@@ -85,5 +85,6 @@ class InitInteractionGroup:
         except FileNotFoundError:
             Server.server_list = []
             self.logger.error('Server list file not found')
-            QMessageBox.warning(UIElements.main_window, 'Error', 'Server list file not found')
+            from Modules.Interface.Dialog import Dialogs
+            Dialogs.when_server_list_file_not_found()
         return Server.server_list
