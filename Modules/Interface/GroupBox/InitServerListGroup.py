@@ -29,7 +29,7 @@ class InitServerListGroup:
 
         # First init server list table size
         UIElements.server_list_table.setColumnWidth(0, 10)
-        UIElements.server_list_table.setColumnWidth(1, 100)
+        UIElements.server_list_table.setColumnWidth(1, 190)
         UIElements.server_list_table.setColumnWidth(2, 50)
         UIElements.server_list_table.setColumnWidth(3, 120)
         UIElements.server_list_table.setColumnWidth(4, 70)

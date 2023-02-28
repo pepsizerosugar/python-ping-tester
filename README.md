@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.5.3-green)
-![Update](https://img.shields.io/badge/Update-2023.02.27-blue)
+![Version](https://img.shields.io/badge/Version-1.5.6-green)
+![Update](https://img.shields.io/badge/Update-2023.02.28-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 ![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
@@ -17,15 +17,14 @@
 
 ## 0. Change Log
 
-### version 1.5.3 (2023.02.27)
+### version 1.5.6 (2023.02.28)
 
 * Commit history
-  * [pepsi-092] removed thread event loop exit log
-  * [pepsi-093] simplify main init method
-  * [pepsi-094] changed call QMessageBox to dialog class
-  * [pepsi-095] DOCS: update README.md
+  * [pepsi-096] FEAT: update server list ([@Avnsx](https://github.com/Avnsx))
+  * [pepsi-097] FEAT: modify column width to match server name length
+  * [pepsi-099] DOCS: update README.md
+  * [pepsi-100] FIX: add bracket
 * Upcoming feature (#To-do)
-  * Modifying the list of servers according to the new update of EFT.
   * Add Ping Results Analysis tab.
   * Modify to set ping options.
 

@@ -35,7 +35,7 @@ if __name__ == '__main__':
     window.setWindowTitle("Ping Pong")
 
     mw = qtmodern.windows.ModernWindow(window)
-    mw.setFixedSize(670, 550)
+    mw.setFixedSize(755, 550)
     mw.show()
 
     sys.exit(app.exec_())
