@@ -1,5 +1,5 @@
-from Modules.Interface.DataClass.EventElements import EventElements
-from Modules.Interface.DataClass.ServerData import Server
+from Modules.Interface import EventElements
+from Modules.Interface import Server
 
 
 class ServerAnalyze:

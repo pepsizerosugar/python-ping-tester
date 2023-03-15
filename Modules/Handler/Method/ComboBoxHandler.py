@@ -1,6 +1,6 @@
-from Modules.Interface.DataClass.EventElements import EventElements
-from Modules.Interface.DataClass.ServerData import Server
-from Modules.Interface.DataClass.UIElement import UIElements
+from Modules.Interface import EventElements
+from Modules.Interface import Server
+from Modules.Interface import UIElements
 
 
 class ComboBoxHandler:

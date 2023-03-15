@@ -20,13 +20,13 @@
 ### version 1.5.6 (2023.02.28)
 
 * Commit history
-  * [pepsi-096] FEAT: update server list ([@Avnsx](https://github.com/Avnsx))
-  * [pepsi-097] FEAT: modify column width to match server name length
-  * [pepsi-099] DOCS: update README.md
-  * [pepsi-100] FIX: add bracket
+    * [pepsi-096] FEAT: update server list ([@Avnsx](https://github.com/Avnsx))
+    * [pepsi-097] FEAT: modify column width to match server name length
+    * [pepsi-099] DOCS: update README.md
+    * [pepsi-100] FIX: add bracket
 * Upcoming feature (#To-do)
-  * Add Ping Results Analysis tab.
-  * Modify to set ping options.
+    * Add Ping Results Analysis tab.
+    * Modify to set ping options.
 
 <br>
 

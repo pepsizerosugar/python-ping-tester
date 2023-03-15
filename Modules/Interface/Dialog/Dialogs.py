@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMessageBox
 
-from Modules.Interface.DataClass.UIElement import UIElements
+from Modules.Interface import UIElements
 
 
 def when_checked_server_is_empty():

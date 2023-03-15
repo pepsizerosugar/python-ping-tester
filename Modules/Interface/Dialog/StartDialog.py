@@ -1,4 +1,4 @@
-from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface import EventElements
 
 
 class StartDialog:
