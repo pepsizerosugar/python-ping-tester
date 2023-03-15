@@ -1,7 +1,7 @@
 # python-ping-tester
 
-![Version](https://img.shields.io/badge/Version-1.5.6-green)
-![Update](https://img.shields.io/badge/Update-2023.02.28-blue)
+![Version](https://img.shields.io/badge/Version-1.5.7-green)
+![Update](https://img.shields.io/badge/Update-2023.03.15-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester/badge)](https://www.codefactor.io/repository/github/pepsizerosugar/python-ping-tester)
 ![GitHub all releases](https://img.shields.io/github/downloads/pepsizerosugar/python-ping-tester/total?color=orange)
 
@@ -17,13 +17,10 @@
 
 ## 0. Change Log
 
-### version 1.5.6 (2023.02.28)
+### version 1.5.7 (2023.03.15)
 
 * Commit history
-    * [pepsi-096] FEAT: update server list ([@Avnsx](https://github.com/Avnsx))
-    * [pepsi-097] FEAT: modify column width to match server name length
-    * [pepsi-099] DOCS: update README.md
-    * [pepsi-100] FIX: add bracket
+    * [pepsi-101] FEAT: simplify package import with __init__.py
 * Upcoming feature (#To-do)
     * Add Ping Results Analysis tab.
     * Modify to set ping options.
