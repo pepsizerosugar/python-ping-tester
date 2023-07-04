@@ -2,10 +2,10 @@ from PyQt5.QtCore import pyqtSlot, Qt, QObject
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem
 
-from Modules.Analyze.ResultAnalyze import ResultAnalyze
-from Modules.Interface.DataClass.EventElements import EventElements
-from Modules.Interface.DataClass.ServerData import Server
-from Modules.Interface.DataClass.UIElement import UIElements
+from Modules.Analyze import ResultAnalyze
+from Modules.Interface import EventElements
+from Modules.Interface import Server
+from Modules.Interface import UIElements
 
 
 class ProgressHandler(QObject):
@@ -50,7 +50,7 @@ class ProgressHandler(QObject):
             best_server_ip = UIElements.server_list_table.item(0, 3).text()
             best_server_ping = UIElements.server_list_table.item(0, 6).text()
 
-            from Modules.Interface.Dialog import Dialogs
+            from Modules.Interface import Dialogs
             Dialogs.when_ping_finished(best_server, best_server_ip, best_server_ping)
 
             self.ping_result_model = []

@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import QGridLayout, QWidget, QDesktopWidget, QProgressBar
 
-from Modules.Interface.DataClass.EventElements import EventElements
-from Modules.Interface.DataClass.UIElement import UIElements
-from Modules.Interface.GroupBox.InitInteractionGroup import InitInteractionGroup
-from Modules.Interface.GroupBox.InitServerListGroup import InitServerListGroup
+from Modules.Interface import EventElements
+from Modules.Interface import InitInteractionGroup
+from Modules.Interface import InitServerListGroup
+from Modules.Interface import UIElements
 
 
 class InitUI:
@@ -42,8 +42,8 @@ class InitUI:
     # Init group box
     @staticmethod
     def init_group_box():
-        InitInteractionGroup()
-        InitServerListGroup()
+        InitInteractionGroup.InitInteractionGroup()
+        InitServerListGroup.InitServerListGroup()
 
     # Init widget
     def init_widget(self):

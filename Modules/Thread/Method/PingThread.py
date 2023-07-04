@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QThread, pyqtSignal
 
-from Modules.Interface.DataClass.EventElements import EventElements
+from Modules.Interface import EventElements
 
 
 class PingThread(QThread):

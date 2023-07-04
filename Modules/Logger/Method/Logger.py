@@ -1,9 +1,10 @@
+from Modules.Interface import EventElements
+
+
 def init_logger():
     import logging.handlers
     import os
     import datetime
-
-    from Modules.Interface.DataClass.EventElements import EventElements
 
     os.makedirs('Logs', exist_ok=True)
     datetime_str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

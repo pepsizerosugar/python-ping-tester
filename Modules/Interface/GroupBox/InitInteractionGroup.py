@@ -1,11 +1,11 @@
 from PyQt5.QtWidgets import QGroupBox, QGridLayout, QComboBox, QPushButton
 
-from Modules.Analyze.ServerAnalyze import ServerAnalyze
-from Modules.Handler.ButtonHandler import ButtonHandler
-from Modules.Handler.ComboBoxHandler import ComboBoxHandler
-from Modules.Interface.DataClass.EventElements import EventElements
-from Modules.Interface.DataClass.ServerData import Server
-from Modules.Interface.DataClass.UIElement import UIElements
+from Modules.Analyze import ServerAnalyze
+from Modules.Handler import ButtonHandler
+from Modules.Handler import ComboBoxHandler
+from Modules.Interface import EventElements
+from Modules.Interface import Server
+from Modules.Interface import UIElements
 
 
 class InitInteractionGroup:
@@ -85,6 +85,6 @@ class InitInteractionGroup:
         except FileNotFoundError:
             Server.server_list = []
             self.logger.error('Server list file not found')
-            from Modules.Interface.Dialog import Dialogs
+            from Modules.Interface import Dialogs
             Dialogs.when_server_list_file_not_found()
         return Server.server_list

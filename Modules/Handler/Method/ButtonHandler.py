@@ -1,11 +1,10 @@
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem
 
-from Modules.Handler.ProgressHandler import ProgressHandler
-from Modules.Interface.DataClass.EventElements import EventElements
-from Modules.Interface.DataClass.ServerData import Server
-from Modules.Interface.DataClass.UIElement import UIElements
-from Modules.Thread.PingThread import PingThread
+from Modules.Interface import EventElements
+from Modules.Interface import Server
+from Modules.Interface import UIElements
+from Modules.Thread import PingThread
 
 
 class ButtonHandler:
@@ -13,6 +12,7 @@ class ButtonHandler:
         super().__init__()
         self.parent = parent
         self.logger = EventElements.logger
+        from Modules.Handler import ProgressHandler
         self.progress_handler = ProgressHandler(self.parent)
 
     # check button clicked
@@ -69,7 +69,7 @@ class ButtonHandler:
                 thread[0].progress.connect(self.progress_handler.handle_progress)
                 thread[0].start()
         else:
-            from Modules.Interface.Dialog import Dialogs
+            from Modules.Interface import Dialogs
             Dialogs.when_checked_server_is_empty()
             UIElements.progress_bar.setRange(0, 1)
             self.enable_interaction()
